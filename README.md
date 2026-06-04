@@ -32,7 +32,7 @@ pnpm add -D oxlint
 ## Current Status
 
 - This repository is split out for local development and eventual publication.
-- The package is still marked `private` and `UNLICENSED` until repository, license, and publish decisions are made deliberately.
+- The package remains `UNLICENSED` and is configured for private npm publishing.
 - Meridian can consume it directly through a local path dependency during the transition.
 
 ## Public Contract
@@ -247,6 +247,7 @@ These may ship in a non-breaking release when the rule intent stays the same:
 
 - Consumer rollout guidance: [`docs/2026-04-23-operator-guide.md`](docs/2026-04-23-operator-guide.md)
 - Maintainer workflow: [`docs/2026-04-23-maintainer-guide.md`](docs/2026-04-23-maintainer-guide.md)
+- Development and release workflow: [`DEVELOPMENT.md`](DEVELOPMENT.md)
 - Standalone extraction checklist: [`docs/2026-04-25-standalone-extraction-checklist.md`](docs/2026-04-25-standalone-extraction-checklist.md)
 - Per-rule reference: [`docs/rules/index.md`](docs/rules/index.md)
 - Package history: [`CHANGELOG.md`](CHANGELOG.md)

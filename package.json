@@ -3,8 +3,15 @@
   "displayName": "Meridian ESLint Rules",
   "version": "1.0.0",
   "description": "Meridian-owned ESLint and Oxlint rules, profiles, and flat-config entrypoints for readability, React contracts, and boundary enforcement.",
-  "private": true,
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-erratic-ensemble/eslint-meridian.git"
+  },
+  "homepage": "https://github.com/the-erratic-ensemble/eslint-meridian#readme",
+  "bugs": {
+    "url": "https://github.com/the-erratic-ensemble/eslint-meridian/issues"
+  },
   "exports": {
     ".": "./eslint-local-rules.js",
     "./configs": "./configs/index.js",
@@ -45,6 +52,10 @@
   ],
   "author": "Meridian",
   "license": "UNLICENSED",
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org/"
+  },
   "peerDependencies": {
     "eslint": "^10.0.0"
   },
