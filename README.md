@@ -32,7 +32,7 @@ pnpm add -D oxlint
 ## Current Status
 
 - This repository is split out for local development and eventual publication.
-- The package remains `UNLICENSED` and is configured for private npm publishing.
+- The package remains `UNLICENSED` and is configured for public npm publishing.
 - Meridian can consume it directly through a local path dependency during the transition.
 
 ## Public Contract

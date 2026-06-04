@@ -45,13 +45,13 @@ The workflow uses these repository secrets:
 - `RELEASE_PLEASE_TOKEN`: GitHub PAT used by Release Please so release PRs and releases can trigger downstream workflows.
 - `NPM_TOKEN`: npm token with publish rights for `@meridian/eslint-rules` and 2FA bypass enabled.
 
-## Initial Private Publish
+## Publish Mode
 
-This repository is configured to publish `@meridian/eslint-rules` as a restricted npm package.
+This repository is configured to publish `@meridian/eslint-rules` as a public npm package.
 
 Package metadata that controls this lives in `package.json`:
 
-- `publishConfig.access = "restricted"`
+- `publishConfig.access = "public"`
 - `publishConfig.registry = "https://registry.npmjs.org/"`
 
 ## Manual Publish Fallback
@@ -68,4 +68,4 @@ Make sure you have already authenticated with `npm login`, or provide a temporar
 
 - Keep `CHANGELOG.md` under Release Please control.
 - Keep `.release-please-manifest.json` aligned with the most recently published version.
-- Meridian can continue using the local repo for development even after private npm publishing is enabled.
+- Meridian can continue using the local repo for development even after public npm publishing is enabled.
