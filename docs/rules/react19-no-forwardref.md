@@ -20,10 +20,10 @@ It flags new `React.forwardRef` usage so the codebase can favor React 19-first r
 
 ## Source of Truth
 
-- Implementation: [react19-no-forwardref.js](react19-no-forwardref.js)
+- Implementation: [react19-no-forwardref.js](../../rules/react19-no-forwardref.js)
 - Tests:
-  - [tests/rules/eslint-local-inline-rules.test.js](tests/rules/eslint-local-inline-rules.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/eslint-local-inline-rules.test.js](../../tests/rules/eslint-local-inline-rules.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

@@ -20,10 +20,10 @@ It flags collection callbacks whose body is a conditional expression returning c
 
 ## Source of Truth
 
-- Implementation: [no-conditional-expressions-in-collection-callbacks.js](no-conditional-expressions-in-collection-callbacks.js)
+- Implementation: [no-conditional-expressions-in-collection-callbacks.js](../../rules/no-conditional-expressions-in-collection-callbacks.js)
 - Tests:
-  - [tests/rules/no-conditional-expressions-in-collection-callbacks.test.js](tests/rules/no-conditional-expressions-in-collection-callbacks.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-conditional-expressions-in-collection-callbacks.test.js](../../tests/rules/no-conditional-expressions-in-collection-callbacks.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

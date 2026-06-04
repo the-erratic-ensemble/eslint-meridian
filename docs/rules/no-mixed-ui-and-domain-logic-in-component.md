@@ -20,7 +20,7 @@ It targets PascalCase components that render JSX and also contain more than the 
 
 ## Source of Truth
 
-- Implementation: [no-mixed-ui-and-domain-logic-in-component.js](no-mixed-ui-and-domain-logic-in-component.js)
+- Implementation: [no-mixed-ui-and-domain-logic-in-component.js](../../rules/no-mixed-ui-and-domain-logic-in-component.js)
 - Tests: No standalone rule test file exists yet. Current coverage is indirect through profile or package-level validation, so treat docs and implementation as the primary sources until dedicated tests land.
 
 ## Rule Options
@@ -68,7 +68,7 @@ function AreaSummaryPanel({ areas }) {
       if (area.isPremium) acc.hasPremium = true;
       return acc;
     },
-    { postcodes: [], districts: [], hasPremium: false }
+    { postcodes: [], districts: [], hasPremium: false },
   );
 
   return <SummaryCard grouped={grouped} />;
@@ -86,7 +86,7 @@ function buildAreaSummaryViewModel(areas) {
       if (area.isPremium) acc.hasPremium = true;
       return acc;
     },
-    { postcodes: [], districts: [], hasPremium: false }
+    { postcodes: [], districts: [], hasPremium: false },
   );
 }
 

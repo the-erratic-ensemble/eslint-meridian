@@ -20,9 +20,9 @@ It flags lengthy `if` / `else if` chains, with extra sensitivity to chains that 
 
 ## Source of Truth
 
-- Implementation: [no-long-if-else-chain.js](no-long-if-else-chain.js)
+- Implementation: [no-long-if-else-chain.js](../../rules/no-long-if-else-chain.js)
 - Tests:
-  - [tests/rules/no-long-if-else-chain.test.js](tests/rules/no-long-if-else-chain.test.js)
+  - [tests/rules/no-long-if-else-chain.test.js](../../tests/rules/no-long-if-else-chain.test.js)
 
 ## Rule Options
 
@@ -49,7 +49,7 @@ if (status === "new") {
 const map = {
   new: ["step"],
   edit: ["step", "validate"],
-  error: ["retry"]
+  error: ["retry"],
 };
 const steps = map[status] ?? [];
 ```

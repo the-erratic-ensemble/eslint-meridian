@@ -20,10 +20,10 @@ It measures inline object-literal methods by body length, ignoring blank and com
 
 ## Source of Truth
 
-- Implementation: [no-long-inline-object-methods.js](no-long-inline-object-methods.js)
+- Implementation: [no-long-inline-object-methods.js](../../rules/no-long-inline-object-methods.js)
 - Tests:
-  - [tests/rules/no-long-inline-object-methods.test.js](tests/rules/no-long-inline-object-methods.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-long-inline-object-methods.test.js](../../tests/rules/no-long-inline-object-methods.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 
@@ -40,7 +40,7 @@ const store = {
     if (!valid) return;
     log(valid);
     persist(valid);
-  }
+  },
 };
 ```
 

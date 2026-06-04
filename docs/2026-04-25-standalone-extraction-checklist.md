@@ -1,19 +1,19 @@
 ---
 title: "Meridian Custom Lint Rules Standalone Extraction Checklist"
 type: "guide"
-description: "Checklist for moving eslint-meridian out of the Meridian monorepo into a standalone repository or broader distribution lane."
+description: "Checklist for moving eslint-meridian into a new repository, owner, or distribution lane."
 status: "active"
 date created: "2026-04-25"
-date modified: "2026-04-25"
+date modified: "2026-06-04"
 ---
 
 # Meridian Custom Lint Rules Standalone Extraction Checklist
 
-Use this checklist when `eslint-meridian` is being moved out of the Meridian monorepo or prepared for broader distribution than the current private standalone package.
+Use this checklist when `eslint-meridian` is moving to a new repository, owner, or release lane.
 
 ## Package Contract
 
-- replace monorepo `repository`, `homepage`, and `bugs` metadata with the standalone package home
+- replace `repository`, `homepage`, and `bugs` metadata with the new package home
 - make an explicit license decision; do not carry `UNLICENSED` into a broader distribution path by inertia
 - confirm the exported subpath contract is still the intended public surface
 - re-run packed-artifact consumer smoke using the new repository/package location
@@ -27,11 +27,11 @@ Use this checklist when `eslint-meridian` is being moved out of the Meridian mon
 ## Ownership and Operations
 
 - assign changelog ownership and release responsibility in the new home
-- define issue-routing and documentation ownership outside the monorepo
-- re-check any remaining monorepo-relative doc links and repo-specific examples
+- define issue-routing and documentation ownership in the new home
+- re-check any remaining repo-specific doc links and examples
 
 ## Consumer Confidence
 
 - validate one real ESLint consumer through the published package name
 - validate one Oxlint consumer through the published package name or documented artifact path
-- confirm direct dependents no longer rely on monorepo-only import assumptions
+- confirm direct dependents no longer rely on old repository-only import assumptions

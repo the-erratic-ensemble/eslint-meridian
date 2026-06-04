@@ -20,9 +20,9 @@ It reports JSX `className` props that reference a local variable whose name look
 
 ## Source of Truth
 
-- Implementation: [no-staged-conditional-class-tokens.js](no-staged-conditional-class-tokens.js)
+- Implementation: [no-staged-conditional-class-tokens.js](../../rules/no-staged-conditional-class-tokens.js)
 - Tests:
-  - [tests/rules/no-staged-conditional-class-tokens.test.js](tests/rules/no-staged-conditional-class-tokens.test.js)
+  - [tests/rules/no-staged-conditional-class-tokens.test.js](../../tests/rules/no-staged-conditional-class-tokens.test.js)
 
 ## Rule Options
 
@@ -36,7 +36,9 @@ It reports JSX `className` props that reference a local variable whose name look
 
 ```tsx
 function SearchModeButton({ active }) {
-  const modePillClass = active ? "bg-white text-brand-950" : "text-white/60 hover:text-white";
+  const modePillClass = active
+    ? "bg-white text-brand-950"
+    : "text-white/60 hover:text-white";
 
   return <button className={`rounded px-2 ${modePillClass}`}>Live</button>;
 }
@@ -49,13 +51,21 @@ const searchModeButtonVariants = cva("rounded px-2", {
   variants: {
     state: {
       active: "bg-white text-brand-950",
-      idle: "text-white/60 hover:text-white"
-    }
-  }
+      idle: "text-white/60 hover:text-white",
+    },
+  },
 });
 
 function SearchModeButton({ active }) {
-  return <button className={searchModeButtonVariants({ state: active ? "active" : "idle" })}>Live</button>;
+  return (
+    <button
+      className={searchModeButtonVariants({
+        state: active ? "active" : "idle",
+      })}
+    >
+      Live
+    </button>
+  );
 }
 ```
 

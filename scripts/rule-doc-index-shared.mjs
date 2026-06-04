@@ -4,7 +4,7 @@ import prettier from "prettier";
 import {
   meridianLocalPilotRuleProfile,
   meridianLocalRecommendedRuleProfile,
-  meridianLocalStrictRuleProfile
+  meridianLocalStrictRuleProfile,
 } from "../rules/profile.js";
 
 export const packageRoot = path.resolve(import.meta.dirname, "..");
@@ -70,8 +70,10 @@ function getRefactorSummary(refactorBody) {
 }
 
 function getProfileFlag(profile, ruleId) {
-  return Object.prototype.hasOwnProperty.call(profile, `meridian-local/${ruleId}`) &&
-    profile[`meridian-local/${ruleId}`] !== "off"
+  return Object.prototype.hasOwnProperty.call(
+    profile,
+    `meridian-local/${ruleId}`,
+  ) && profile[`meridian-local/${ruleId}`] !== "off"
     ? true
     : false;
 }
@@ -89,23 +91,27 @@ function collectRuleIndexEntries() {
     const content = fs.readFileSync(absolutePath, "utf8");
     const sections = parseSections(content);
     const basename = path.basename(absolutePath, ".md");
-    const rootRelativeDocPath = `docs/rules/${path.basename(absolutePath)}`;
+    const relativeDocPath = `./${path.basename(absolutePath)}`;
 
     const ruleId = content.match(ruleIdPattern)?.[1] ?? basename;
     const category = content.match(categoryPattern)?.[1] ?? "Uncategorized";
-    const optionSummary = getOptionSummary(getSectionBody(sections, "Rule Options"));
-    const refactorSummary = getRefactorSummary(getSectionBody(sections, "Refactor Direction"));
+    const optionSummary = getOptionSummary(
+      getSectionBody(sections, "Rule Options"),
+    );
+    const refactorSummary = getRefactorSummary(
+      getSectionBody(sections, "Refactor Direction"),
+    );
 
     return {
       basename,
-      rootRelativeDocPath,
+      relativeDocPath,
       ruleId,
       category,
       optionSummary,
       refactorSummary,
       recommended: getProfileFlag(meridianLocalRecommendedRuleProfile, ruleId),
       strict: getProfileFlag(meridianLocalStrictRuleProfile, ruleId),
-      pilot: getProfileFlag(meridianLocalPilotRuleProfile, ruleId)
+      pilot: getProfileFlag(meridianLocalPilotRuleProfile, ruleId),
     };
   });
 }
@@ -120,22 +126,22 @@ export async function buildRuleIndexMarkdown() {
     "",
     "# Meridian Local Rule Reference",
     "",
-    "Use this index as the fast scanning surface for Meridian custom rules.",
+    "Use this index for a quick scan of the Meridian custom rule set.",
     "",
     "Supporting guides:",
     "",
-    "- [Operator guide](docs/2026-04-23-operator-guide.md)",
-    "- [Maintainer guide](docs/2026-04-23-maintainer-guide.md)",
+    "- [Operator guide](../2026-04-23-operator-guide.md)",
+    "- [Maintainer guide](../2026-04-23-maintainer-guide.md)",
     "",
     "Legend: `R` = `recommended`, `S` = `strict`, `P` = `pilot`.",
     "",
     "| Rule | Exported Rule ID | Category | Profiles | Options | Preferred refactor |",
-    "| --- | --- | --- | --- | --- | --- |"
+    "| --- | --- | --- | --- | --- | --- |",
   ];
 
   for (const entry of collectRuleIndexEntries()) {
     lines.push(
-      `| [${entry.basename}](${entry.rootRelativeDocPath}) | \`meridian-local/${entry.ruleId}\` | ${entry.category} | \`${formatProfileFlags(entry)}\` | ${entry.optionSummary} | ${entry.refactorSummary} |`
+      `| [${entry.basename}](${entry.relativeDocPath}) | \`meridian-local/${entry.ruleId}\` | ${entry.category} | \`${formatProfileFlags(entry)}\` | ${entry.optionSummary} | ${entry.refactorSummary} |`,
     );
   }
 
@@ -143,10 +149,10 @@ export async function buildRuleIndexMarkdown() {
     "",
     "## Notes",
     "",
-    "- Per-rule pages include profile status, implementation links, test links where available, edge-case guidance for heuristic rules, and refactor direction before suppression guidance."
+    "- Per-rule pages include profile status, implementation links, test links where available, edge-case guidance for heuristic rules, and refactor direction before suppression guidance.",
   );
 
   return prettier.format(`${lines.join("\n")}\n`, {
-    filepath: generatedIndexPath
+    filepath: generatedIndexPath,
   });
 }

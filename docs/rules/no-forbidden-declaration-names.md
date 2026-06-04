@@ -20,10 +20,10 @@ It checks declarations and member-like names against configured forbidden fragme
 
 ## Source of Truth
 
-- Implementation: [no-forbidden-declaration-names.js](no-forbidden-declaration-names.js)
+- Implementation: [no-forbidden-declaration-names.js](../../rules/no-forbidden-declaration-names.js)
 - Tests:
-  - [tests/rules/eslint-local-inline-rules.test.js](tests/rules/eslint-local-inline-rules.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/eslint-local-inline-rules.test.js](../../tests/rules/eslint-local-inline-rules.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

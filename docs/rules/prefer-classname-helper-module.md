@@ -20,7 +20,7 @@ It nudges complex class name logic toward extracted helpers or modules rather th
 
 ## Source of Truth
 
-- Implementation: [prefer-classname-helper-module.js](prefer-classname-helper-module.js)
+- Implementation: [prefer-classname-helper-module.js](../../rules/prefer-classname-helper-module.js)
 - Tests: No standalone rule test file exists yet. Current coverage is indirect through profile or package-level validation, so treat docs and implementation as the primary sources until dedicated tests land.
 
 ## Rule Options
@@ -35,13 +35,21 @@ It nudges complex class name logic toward extracted helpers or modules rather th
 ### ❌ Incorrect
 
 ```jsx
-<div className={clsx(base, isDark ? "dark" : null, isBusy ? "busy" : null, active ? "active" : null)} />
+<div
+  className={clsx(
+    base,
+    isDark ? "dark" : null,
+    isBusy ? "busy" : null,
+    active ? "active" : null,
+  )}
+/>
 ```
 
 ### ✅ Correct
 
 ```jsx
-const cardClassName = (props) => clsx(base, props.isDark && "dark", props.isBusy && "busy");
+const cardClassName = (props) =>
+  clsx(base, props.isDark && "dark", props.isBusy && "busy");
 <div className={cardClassName({ isDark, isBusy })} />;
 ```
 

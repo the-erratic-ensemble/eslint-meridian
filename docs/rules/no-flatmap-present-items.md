@@ -20,10 +20,10 @@ It targets the specific present-item compaction pattern where a `flatMap` callba
 
 ## Source of Truth
 
-- Implementation: [no-flatmap-present-items.js](no-flatmap-present-items.js)
+- Implementation: [no-flatmap-present-items.js](../../rules/no-flatmap-present-items.js)
 - Tests:
-  - [tests/rules/no-flatmap-present-items.test.js](tests/rules/no-flatmap-present-items.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-flatmap-present-items.test.js](../../tests/rules/no-flatmap-present-items.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

@@ -20,9 +20,9 @@ It targets JSX attribute handlers and inline prop IIFEs that contain too much lo
 
 ## Source of Truth
 
-- Implementation: [no-complex-inline-handlers.js](no-complex-inline-handlers.js)
+- Implementation: [no-complex-inline-handlers.js](../../rules/no-complex-inline-handlers.js)
 - Tests:
-  - [tests/rules/no-complex-inline-handlers.test.js](tests/rules/no-complex-inline-handlers.test.js)
+  - [tests/rules/no-complex-inline-handlers.test.js](../../tests/rules/no-complex-inline-handlers.test.js)
 
 ## Rule Options
 

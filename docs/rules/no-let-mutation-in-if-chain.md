@@ -20,9 +20,9 @@ It catches `let` variables that are declared and then reassigned within a follow
 
 ## Source of Truth
 
-- Implementation: [no-let-mutation-in-if-chain.js](no-let-mutation-in-if-chain.js)
+- Implementation: [no-let-mutation-in-if-chain.js](../../rules/no-let-mutation-in-if-chain.js)
 - Tests:
-  - [tests/rules/no-let-mutation-in-if-chain.test.js](tests/rules/no-let-mutation-in-if-chain.test.js)
+  - [tests/rules/no-let-mutation-in-if-chain.test.js](../../tests/rules/no-let-mutation-in-if-chain.test.js)
 
 ## Rule Options
 

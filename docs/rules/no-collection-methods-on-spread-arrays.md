@@ -22,10 +22,10 @@ This rule intentionally focuses on pure spread wrappers like `[...items]` or `[.
 
 ## Source of Truth
 
-- Implementation: [no-collection-methods-on-spread-arrays.js](no-collection-methods-on-spread-arrays.js)
+- Implementation: [no-collection-methods-on-spread-arrays.js](../../rules/no-collection-methods-on-spread-arrays.js)
 - Tests:
-  - [tests/rules/no-collection-methods-on-spread-arrays.test.js](tests/rules/no-collection-methods-on-spread-arrays.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-collection-methods-on-spread-arrays.test.js](../../tests/rules/no-collection-methods-on-spread-arrays.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

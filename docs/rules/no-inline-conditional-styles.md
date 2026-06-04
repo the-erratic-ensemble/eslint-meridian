@@ -20,7 +20,7 @@ It flags conditional style expressions in JSX attributes such as `className` or 
 
 ## Source of Truth
 
-- Implementation: [no-inline-conditional-styles.js](no-inline-conditional-styles.js)
+- Implementation: [no-inline-conditional-styles.js](../../rules/no-inline-conditional-styles.js)
 - Tests: No standalone rule test file exists yet. Current coverage is indirect through profile or package-level validation, so treat docs and implementation as the primary sources until dedicated tests land.
 
 ## Rule Options
@@ -59,7 +59,7 @@ function AreaCard({ isSelected, intent, areaType }) {
         "rounded-xl border px-4 py-3",
         isSelected ? "border-brand-600 bg-brand-50" : "border-slate-200",
         intent === "warning" ? "text-amber-900" : "text-slate-900",
-        areaType === "postcode" ? "shadow-sm" : "shadow-none"
+        areaType === "postcode" ? "shadow-sm" : "shadow-none",
       )}
     />
   );
@@ -74,7 +74,7 @@ function getAreaCardClassName({ isSelected, intent, areaType }) {
     "rounded-xl border px-4 py-3",
     isSelected ? "border-brand-600 bg-brand-50" : "border-slate-200",
     intent === "warning" ? "text-amber-900" : "text-slate-900",
-    areaType === "postcode" ? "shadow-sm" : "shadow-none"
+    areaType === "postcode" ? "shadow-sm" : "shadow-none",
   );
 }
 

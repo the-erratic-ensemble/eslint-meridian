@@ -30,10 +30,10 @@ It targets array literals that combine direct elements with spread-based collect
 
 ## Source of Truth
 
-- Implementation: [no-inline-spread-collection-pipelines.js](no-inline-spread-collection-pipelines.js)
+- Implementation: [no-inline-spread-collection-pipelines.js](../../rules/no-inline-spread-collection-pipelines.js)
 - Tests:
-  - [tests/rules/no-inline-spread-collection-pipelines.test.js](tests/rules/no-inline-spread-collection-pipelines.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-inline-spread-collection-pipelines.test.js](../../tests/rules/no-inline-spread-collection-pipelines.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 
@@ -45,11 +45,17 @@ It targets array literals that combine direct elements with spread-based collect
 ### ❌ Incorrect
 
 ```js
-const nextItems = [selectedItem, ...items.filter((item) => item.id !== selectedItem.id)].slice(0, 5);
+const nextItems = [
+  selectedItem,
+  ...items.filter((item) => item.id !== selectedItem.id),
+].slice(0, 5);
 ```
 
 ```js
-const nextItems = [selectedItem, ...items.filter((item) => item.visible).map((item) => item.id)];
+const nextItems = [
+  selectedItem,
+  ...items.filter((item) => item.visible).map((item) => item.id),
+];
 ```
 
 ### ✅ Correct
@@ -60,7 +66,9 @@ const nextItems = [selectedItem, ...dedupedItems].slice(0, 5);
 ```
 
 ```js
-const visibleItemIds = items.filter((item) => item.visible).map((item) => item.id);
+const visibleItemIds = items
+  .filter((item) => item.visible)
+  .map((item) => item.id);
 const nextItems = [selectedItem, ...visibleItemIds];
 ```
 

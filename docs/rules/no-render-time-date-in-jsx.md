@@ -20,9 +20,9 @@ It reports `new Date()` and configured `Date.*` static calls inside JSX expressi
 
 ## Source of Truth
 
-- Implementation: [no-render-time-date-in-jsx.js](no-render-time-date-in-jsx.js)
+- Implementation: [no-render-time-date-in-jsx.js](../../rules/no-render-time-date-in-jsx.js)
 - Tests:
-  - [tests/rules/no-render-time-date-in-jsx.test.js](tests/rules/no-render-time-date-in-jsx.test.js)
+  - [tests/rules/no-render-time-date-in-jsx.test.js](../../tests/rules/no-render-time-date-in-jsx.test.js)
 
 ## Rule Options
 

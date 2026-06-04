@@ -20,7 +20,7 @@ It looks for conditional tests that rely on deep optional chains instead of stag
 
 ## Source of Truth
 
-- Implementation: [no-deep-optional-chaining-conditions.js](no-deep-optional-chaining-conditions.js)
+- Implementation: [no-deep-optional-chaining-conditions.js](../../rules/no-deep-optional-chaining-conditions.js)
 - Tests: No standalone rule test file exists yet. Current coverage is indirect through profile or package-level validation, so treat docs and implementation as the primary sources until dedicated tests land.
 
 ## Rule Options

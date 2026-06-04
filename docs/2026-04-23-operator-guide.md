@@ -4,7 +4,7 @@ type: "guide"
 description: "Operator-facing guidance for choosing Meridian lint profiles, staging grouped rollouts, and deciding when suppression is justified."
 status: "active"
 date created: "2026-04-23"
-date modified: "2026-05-31"
+date modified: "2026-06-04"
 tags: [eslint, lint, rules, operator-guide]
 component: [packages, tooling]
 related:
@@ -20,7 +20,7 @@ Use this guide when you are consuming `eslint-meridian` from an app or package a
 - whether a warning should trigger a refactor or a suppression
 - which grouped config or refactor shape matches the rule family you are rolling out
 
-Per-rule details still live in [`docs/rules`](docs/rules/index.md). This guide explains how to operate the rules as a set.
+Per-rule details still live in [the rule reference](./rules/index.md). This guide explains how to operate the rules as a set.
 
 ## Consumer Baseline
 
@@ -30,7 +30,7 @@ Assume these requirements before enabling the package:
 - Node `>=20`
 - ESLint `^10`
 - `@typescript-eslint/parser` for TypeScript or TSX surfaces
-- package entrypoints, not Meridian repo-relative paths
+- package entrypoints, not repo-internal file paths
 
 Prefer the exported config fragments under `eslint-meridian/configs` unless you have a good reason to wire the plugin manually.
 
@@ -103,11 +103,11 @@ These rules enforce Meridian naming and boundary expectations.
 
 `rules/profile.js` and the `configs/*` exports expose three stable profiles. They are additive on purpose.
 
-| Profile | Source of truth | What it enables | When to use it |
-| --- | --- | --- | --- |
-| `recommended` | `oxlint/meridian-local-rules.json` | Current stable baseline | Default for production adoption |
-| `strict` | `recommended` plus JS additions in `rules/profile.js` | Adds `no-deep-optional-chaining-conditions` and `no-mixed-ui-and-domain-logic-in-component` | Use when a surface already expects stricter boundary enforcement |
-| `pilot` | `strict` plus JS additions in `rules/profile.js` | Adds `no-inline-object-literals-in-jsx` | Use only for bounded trial rollout |
+| Profile       | Source of truth                                       | What it enables                                                                             | When to use it                                                   |
+| ------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `recommended` | `oxlint/meridian-local-rules.json`                    | Current stable baseline                                                                     | Default for production adoption                                  |
+| `strict`      | `recommended` plus JS additions in `rules/profile.js` | Adds `no-deep-optional-chaining-conditions` and `no-mixed-ui-and-domain-logic-in-component` | Use when a surface already expects stricter boundary enforcement |
+| `pilot`       | `strict` plus JS additions in `rules/profile.js`      | Adds `no-inline-object-literals-in-jsx`                                                     | Use only for bounded trial rollout                               |
 
 ## Profile Selection Guide
 
@@ -132,16 +132,16 @@ These map directly to the taxonomy in this guide. They exist so consumers can st
 
 Use the closest rule match before deciding a warning is redundant.
 
-| If you hit this | Check this too | How to decide |
-| --- | --- | --- |
-| `no-complex-inline-object-methods` | `no-long-inline-object-methods` | If the method is short but dense, complexity is the real problem. If it is long even with simple control flow, the length rule is the main signal. |
-| `no-nested-try` | `no-deep-control-flow-nesting` | Use nested-try when the real problem is overlapping error boundaries. Use deep-control-flow-nesting when the issue is branch depth even without try/catch. |
-| `no-long-collection-method-chains` | `no-inline-spread-collection-pipelines` | Use long-collection-method-chains for general inline pipeline length. Use inline-spread-collection-pipelines when the extra readability cost comes from spread assembly. |
-| `no-collection-methods-on-spread-arrays` | `no-inline-spread-collection-pipelines` | Use collection-methods-on-spread-arrays for pure spread wrappers like `[...items].filter(...)`. Use inline-spread-collection-pipelines when regular elements and spread assembly are mixed together. |
-| `no-inline-collection-fallbacks` | `no-repeated-collection-method-fallbacks` | Repeated receiver work across a fallback chain is a stronger signal than a single inline fallback. Stage the collection once and both warnings usually disappear. |
-| `no-collection-methods-in-ternaries` | `no-conditional-expressions-in-collection-callbacks` | One flags branch-level collection work; the other flags callback-level branch compression. |
-| `no-inline-conditional-styles` | `prefer-classname-helper-module` | Fix the inline conditional first. If style decisions still stay noisy after extraction, move the policy into a helper module. |
-| `no-nested-ternary-in-jsx` | `unicorn/no-nested-ternary` | Treat Meridian's rule as the JSX contract. Avoid layering a broader nested-ternary rule on the same render path unless you explicitly want both. |
+| If you hit this                          | Check this too                                       | How to decide                                                                                                                                                                                        |
+| ---------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `no-complex-inline-object-methods`       | `no-long-inline-object-methods`                      | If the method is short but dense, complexity is the real problem. If it is long even with simple control flow, the length rule is the main signal.                                                   |
+| `no-nested-try`                          | `no-deep-control-flow-nesting`                       | Use nested-try when the real problem is overlapping error boundaries. Use deep-control-flow-nesting when the issue is branch depth even without try/catch.                                           |
+| `no-long-collection-method-chains`       | `no-inline-spread-collection-pipelines`              | Use long-collection-method-chains for general inline pipeline length. Use inline-spread-collection-pipelines when the extra readability cost comes from spread assembly.                             |
+| `no-collection-methods-on-spread-arrays` | `no-inline-spread-collection-pipelines`              | Use collection-methods-on-spread-arrays for pure spread wrappers like `[...items].filter(...)`. Use inline-spread-collection-pipelines when regular elements and spread assembly are mixed together. |
+| `no-inline-collection-fallbacks`         | `no-repeated-collection-method-fallbacks`            | Repeated receiver work across a fallback chain is a stronger signal than a single inline fallback. Stage the collection once and both warnings usually disappear.                                    |
+| `no-collection-methods-in-ternaries`     | `no-conditional-expressions-in-collection-callbacks` | One flags branch-level collection work; the other flags callback-level branch compression.                                                                                                           |
+| `no-inline-conditional-styles`           | `prefer-classname-helper-module`                     | Fix the inline conditional first. If style decisions still stay noisy after extraction, move the policy into a helper module.                                                                        |
+| `no-nested-ternary-in-jsx`               | `unicorn/no-nested-ternary`                          | Treat Meridian's rule as the JSX contract. Avoid layering a broader nested-ternary rule on the same render path unless you explicitly want both.                                                     |
 
 Do not suppress one rule just because a nearby rule also reports the same line. Refactor toward the clearer code shape and then re-run lint to see which signal remains.
 
@@ -159,10 +159,10 @@ export default [
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
-      parser: tseslintParser
+      parser: tseslintParser,
     },
-    ...meridianLocalRecommendedConfig
-  }
+    ...meridianLocalRecommendedConfig,
+  },
 ];
 ```
 
@@ -176,10 +176,10 @@ export default [
   {
     files: ["src/features/search/**/*.tsx"],
     languageOptions: {
-      parser: tseslintParser
+      parser: tseslintParser,
     },
-    ...meridianLocalPilotConfig
-  }
+    ...meridianLocalPilotConfig,
+  },
 ];
 ```
 
@@ -211,7 +211,7 @@ Prefer the narrowest escape hatch:
 2. If the rule is correct but the rollout is too noisy for one surface, override the rule in that surface's lint config with a dated reason.
 3. If one line or block is the justified exception, use a local disable comment with the exact `meridian-local/<rule-id>` value and a reason tied to the code.
 
-When a shared lint config override is needed, route it through the ESLint exception registry workflow documented in `docs/reference/2026-03/2026-03-25-eslint-governance-tooling-reference.md`. Use a stable `ESLINT-EX-*` ID in the consumer config comment rather than a free-form note.
+When a shared lint config override is needed, document it in the consuming repository's lint-governance process. Use a stable `ESLINT-EX-*`-style ID in the consumer config comment rather than a free-form note.
 
 Do not suppress when:
 

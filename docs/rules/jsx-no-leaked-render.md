@@ -20,10 +20,10 @@ It flags `&&` expressions directly inside JSX expression containers when the lef
 
 ## Source of Truth
 
-- Implementation: [jsx-no-leaked-render.js](jsx-no-leaked-render.js)
+- Implementation: [jsx-no-leaked-render.js](../../rules/jsx-no-leaked-render.js)
 - Tests:
-  - [tests/rules/jsx-no-leaked-render.test.js](tests/rules/jsx-no-leaked-render.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/jsx-no-leaked-render.test.js](../../tests/rules/jsx-no-leaked-render.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

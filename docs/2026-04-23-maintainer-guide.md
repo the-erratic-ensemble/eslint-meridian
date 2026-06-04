@@ -4,7 +4,7 @@ type: "guide"
 description: "Maintainer-facing guidance for adding new Meridian custom lint rules, wiring them into profiles, and keeping tests and docs in sync."
 status: "active"
 date created: "2026-04-23"
-date modified: "2026-05-31"
+date modified: "2026-06-04"
 tags: [eslint, lint, rules, maintainer-guide]
 component: [packages, tooling]
 related:
@@ -49,7 +49,7 @@ Add it here only if it encodes Meridian-specific readability, naming, or boundar
 
 Create `rules/<rule-file>.js` and keep the implementation self-contained unless shared AST helpers already exist in `rules/eslint-local-rules-shared.js`.
 
-4. Export the rule from [`rules/eslint-local-rules.js`](rules/eslint-local-rules.js).
+4. Export the rule from [`rules/eslint-local-rules.js`](../rules/eslint-local-rules.js).
 
 Add both:
 
@@ -58,12 +58,12 @@ Add both:
 
 The key in `LOCAL_RULES` is what consumers suppress against. That contract matters more than the filename.
 
-If the rule is intentionally part of the raw rule-module surface, also export it from [`rules/index.js`](rules/index.js). Do not create one-off standalone rule exports in `package.json`.
+If the rule is intentionally part of the raw rule-module surface, also export it from [`rules/index.js`](../rules/index.js). Do not create one-off standalone rule exports in `package.json`.
 
 5. Decide profile placement.
 
 - add the rule to `oxlint/meridian-local-rules.json` if it belongs in `recommended`
-- add it to `STRICT_ADDITIONS` in [`rules/profile.js`](rules/profile.js) if it should remain off in `recommended` but on in `strict`
+- add it to `STRICT_ADDITIONS` in [`rules/profile.js`](../rules/profile.js) if it should remain off in `recommended` but on in `strict`
 - add it to `PILOT_OVERRIDES` only for deliberate trial rollout
 
 Do not create a fourth profile casually. Existing config consumers expect `recommended`, `strict`, and `pilot`.
@@ -85,9 +85,9 @@ Create `docs/rules/<rule>.md` and link it from `docs/rules/index.md`.
 
 If the new rule changes how operators choose profiles or interpret the taxonomy, update:
 
-- [`README.md`](README.md)
-- [`2026-04-23-operator-guide.md`](docs/2026-04-23-operator-guide.md)
-- [`CHANGELOG.md`](CHANGELOG.md) when the operator contract, rollout state, or profile guidance changed
+- [`README.md`](../README.md)
+- [`2026-04-23-operator-guide.md`](./2026-04-23-operator-guide.md)
+- [`CHANGELOG.md`](../CHANGELOG.md) when the operator contract, rollout state, or profile guidance changed
 
 ## Contribution Guidance
 
@@ -155,20 +155,16 @@ If two rules would suggest the same refactor to the same code shape, narrow one 
 This package defines rule IDs and profiles, but app-level policy exceptions are governed elsewhere.
 
 - Shared config exceptions should use stable `ESLINT-EX-*` comments in the consumer config.
-- Registry ownership and validator expectations live in `docs/reference/2026-03/2026-03-25-eslint-governance-tooling-reference.md`.
+- Registry ownership and validator expectations should live with the consuming repository's lint-governance docs.
 - Do not add free-form "temporary" comments in package docs as a substitute for governed exceptions in consuming configs.
 
-When writing maintainer docs or rollout notes, link to the governance reference instead of duplicating the registry schema here.
+When writing maintainer docs or rollout notes, point maintainers to the consumer repo's governance reference instead of duplicating the registry schema here.
 
-## Workspace Adoption Awareness
+## Adoption Awareness
 
-Current documented adoption matters when deciding whether a new rule is ready for `recommended`.
+Documented downstream use matters when deciding whether a new rule is ready for `recommended`.
 
-- `recommended` is already consumed by shared React config in `packages/config`.
-- The canonical Oxlint profile is already extended by `apps/web`, `apps/admin`, and `apps/marketing`.
-- `pilot` is published, but no long-lived workspace is documented here as a standing `pilot` adopter.
-
-That means promotion decisions should assume real downstream blast radius, even when the initial rule work happened in one package.
+Treat profile promotion as a change with real consumer blast radius, even if the initial rule work happened in one package or repository.
 
 ## Common Failure Modes
 
@@ -221,7 +217,7 @@ pnpm --filter eslint-meridian check:docs
 pnpm --filter eslint-meridian format:check
 ```
 
-If profile membership changed, confirm the expectations in [`tests/rules/meridian-local-profiles.test.js`](tests/rules/meridian-local-profiles.test.js) still match the shipped profile layers.
+If profile membership changed, confirm the expectations in [`tests/rules/meridian-local-profiles.test.js`](../tests/rules/meridian-local-profiles.test.js) still match the shipped profile layers.
 
 ### Fast Failure Isolation
 

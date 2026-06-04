@@ -20,7 +20,7 @@ It reports object literal expressions passed inline through JSX props.
 
 ## Source of Truth
 
-- Implementation: [no-inline-object-literals-in-jsx.js](no-inline-object-literals-in-jsx.js)
+- Implementation: [no-inline-object-literals-in-jsx.js](../../rules/no-inline-object-literals-in-jsx.js)
 - Tests: No standalone rule test file exists yet. Current coverage is indirect through profile or package-level validation, so treat docs and implementation as the primary sources until dedicated tests land.
 
 ## Rule Options
@@ -49,7 +49,12 @@ const cardOptions = { title: "Search", compact: true, onSubmit };
 
 ```tsx
 function SearchResults({ rows, selectedAreaId }) {
-  return <ResultsTable rows={rows} filters={{ selectedAreaId, includeArchived: false, mode: "postcode" }} />;
+  return (
+    <ResultsTable
+      rows={rows}
+      filters={{ selectedAreaId, includeArchived: false, mode: "postcode" }}
+    />
+  );
 }
 ```
 
@@ -60,7 +65,7 @@ function SearchResults({ rows, selectedAreaId }) {
   const tableFilters = {
     selectedAreaId,
     includeArchived: false,
-    mode: "postcode"
+    mode: "postcode",
   };
 
   return <ResultsTable rows={rows} filters={tableFilters} />;
