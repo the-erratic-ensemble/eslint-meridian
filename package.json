@@ -1,0 +1,78 @@
+{
+  "name": "@meridian/eslint-rules",
+  "displayName": "Meridian ESLint Rules",
+  "version": "1.0.0",
+  "description": "Meridian-owned ESLint and Oxlint rules, profiles, and flat-config entrypoints for readability, React contracts, and boundary enforcement.",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./eslint-local-rules.js",
+    "./configs": "./configs/index.js",
+    "./configs/recommended": "./configs/recommended.js",
+    "./configs/strict": "./configs/strict.js",
+    "./configs/pilot": "./configs/pilot.js",
+    "./configs/all": "./configs/all.js",
+    "./configs/react-contract": "./configs/react-contract.js",
+    "./configs/callback-complexity": "./configs/callback-complexity.js",
+    "./configs/control-flow": "./configs/control-flow.js",
+    "./configs/collection-readability": "./configs/collection-readability.js",
+    "./configs/naming-boundaries": "./configs/naming-boundaries.js",
+    "./eslint-local-rules.js": "./eslint-local-rules.js",
+    "./eslint-local-rules-shared.js": "./eslint-local-rules-shared.js",
+    "./profile.js": "./profile.js",
+    "./rules": "./rules/index.js",
+    "./oxlint/meridian-local-plugin.js": "./oxlint/meridian-local-plugin.js",
+    "./oxlint/meridian-local-rules.json": "./oxlint/meridian-local-rules.json"
+  },
+  "scripts": {
+    "lint": "eslint \".\" --ext .js,.mjs,.ts --ignore-pattern '*.d.ts'",
+    "test": "pnpm test:rules",
+    "test:rules": "node --test tests/rules/**/*.test.js",
+    "generate:docs": "node scripts/generate-rule-index.mjs",
+    "check:docs": "node scripts/check-rule-docs.mjs",
+    "format": "prettier --write \"*.{js,mjs,ts,json,md}\" README.md",
+    "format:check": "prettier --check \"*.{js,mjs,ts,json,md}\" README.md"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "flat-config",
+    "lint",
+    "oxlint",
+    "react",
+    "rules",
+    "typescript"
+  ],
+  "author": "Meridian",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "eslint": "^10.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^8.58.1",
+    "eslint": "^10",
+    "oxlint": "1.60.0",
+    "prettier": "^3.8.1"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "files": [
+    "eslint-local-rules.js",
+    "eslint-local-rules-shared.js",
+    "jsx-*.js",
+    "no-*.js",
+    "prefer-*.js",
+    "profile.js",
+    "react-component-filename-pascal-case.js",
+    "react19-*.js",
+    "configs",
+    "oxlint",
+    "rules",
+    "package.json",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "packageManager": "pnpm@10.33.0"
+}

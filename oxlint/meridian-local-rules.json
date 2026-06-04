@@ -1,0 +1,159 @@
+{
+  "jsPlugins": ["./meridian-local-plugin.js"],
+  "rules": {
+    "meridian-local/react19-no-forwardref": "warn",
+    "meridian-local/no-forbidden-declaration-names": [
+      "warn",
+      {
+        "allowNames": ["buildingFabricScore"],
+        "patterns": [
+          {
+            "startsWith": "build",
+            "caseSensitive": true
+          },
+          {
+            "contains": "derive",
+            "caseSensitive": false
+          },
+          {
+            "contains": "resolve",
+            "caseSensitive": false
+          },
+          {
+            "contains": "render",
+            "caseSensitive": false
+          },
+          {
+            "endsWith": "ClassName",
+            "caseSensitive": true
+          },
+          {
+            "endsWith": "View",
+            "caseSensitive": true
+          }
+        ]
+      }
+    ],
+    "meridian-local/no-complex-inline-handlers": "warn",
+    "meridian-local/jsx-no-leaked-render": "warn",
+    "meridian-local/no-ternary-in-branch-assignment": [
+      "warn",
+      {
+        "checkAssignments": true,
+        "checkVariableDeclarations": true,
+        "checkReturnStatements": false
+      }
+    ],
+    "meridian-local/no-nested-ternary-in-jsx": "warn",
+    "meridian-local/no-complex-array-callbacks": [
+      "warn",
+      {
+        "methods": ["map", "filter", "find", "some", "every", "flatMap"],
+        "requireExpressionBody": false,
+        "maxStatements": 1,
+        "disallowVariableDeclarations": true,
+        "disallowIf": true,
+        "disallowSwitch": true,
+        "disallowLoops": true,
+        "disallowNestedFunctions": true,
+        "disallowTernary": false
+      }
+    ],
+    "meridian-local/no-collection-methods-on-spread-arrays": "warn",
+    "meridian-local/no-collection-methods-in-ternaries": "warn",
+    "meridian-local/no-collection-constructor-pipelines": "warn",
+    "meridian-local/no-inline-spread-collection-pipelines": "warn",
+    "meridian-local/no-conditional-expressions-in-collection-callbacks": "warn",
+    "meridian-local/no-inline-collection-fallbacks": "warn",
+    "meridian-local/no-flatmap-present-items": "warn",
+    "meridian-local/no-conditional-collection-initializers": "warn",
+    "meridian-local/no-repeated-collection-method-fallbacks": "warn",
+    "meridian-local/no-indexed-collection-pipeline-fallbacks": "warn",
+    "meridian-local/no-set-map-from-flatmap": "warn",
+    "meridian-local/no-complex-hook-callbacks": [
+      "warn",
+      {
+        "hooks": ["useCallback", "useMemo", "useEffect"],
+        "maxStatements": 5,
+        "maxBranches": 1,
+        "maxVariableDeclarations": 1,
+        "disallowTernary": false,
+        "disallowNestedTernary": true
+      }
+    ],
+    "meridian-local/no-complex-jsx-collection-callback": [
+      "warn",
+      {
+        "methods": ["map", "flatMap"],
+        "disallowBlockBody": true,
+        "maxStatements": 1,
+        "disallowVariableDeclarations": true,
+        "disallowIf": true,
+        "disallowSwitch": true,
+        "disallowInlineHandlerBlocks": true
+      }
+    ],
+    "meridian-local/no-complex-inline-object-methods": [
+      "warn",
+      {
+        "maxComplexitySignals": 2,
+        "countLogicalExpressions": true,
+        "countNestedFunctions": true
+      }
+    ],
+    "meridian-local/no-long-inline-object-methods": [
+      "warn",
+      {
+        "maxBodyLines": 3
+      }
+    ],
+    "meridian-local/no-let-mutation-in-if-chain": "warn",
+    "meridian-local/no-deep-control-flow-nesting": [
+      "warn",
+      {
+        "maxDepth": 2,
+        "maxLoopDepth": 1,
+        "ignoreGuardClauses": true,
+        "trackedNodeTypes": [
+          "IfStatement",
+          "SwitchStatement",
+          "ForStatement",
+          "ForInStatement",
+          "ForOfStatement",
+          "WhileStatement",
+          "DoWhileStatement"
+        ]
+      }
+    ],
+    "meridian-local/no-nested-try": "warn",
+    "meridian-local/no-long-collection-method-chains": [
+      "warn",
+      {
+        "maxChainLength": 2
+      }
+    ],
+    "meridian-local/no-long-if-else-chain": [
+      "warn",
+      {
+        "maxChainLength": 2,
+        "maxBranchWrites": 2
+      }
+    ],
+    "meridian-local/no-inline-conditional-styles": [
+      "warn",
+      {
+        "propNames": ["className"],
+        "functionNames": ["clsx", "cx", "cn"],
+        "disallowTernary": true,
+        "disallowLogicalAnd": false,
+        "disallowLogicalOr": false,
+        "allowSimpleIdentifierFallbacks": true
+      }
+    ],
+    "meridian-local/no-inline-object-literals-in-jsx": "off",
+    "meridian-local/no-render-time-date-in-jsx": "warn",
+    "meridian-local/no-state-sync-useeffect": "warn",
+    "meridian-local/no-staged-conditional-class-tokens": "warn",
+    "meridian-local/prefer-classname-helper-module": "warn"
+  }
+}
