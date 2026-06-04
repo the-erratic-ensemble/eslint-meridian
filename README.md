@@ -2,7 +2,7 @@
 
 Standalone repository for the Meridian ESLint and Oxlint rules that enforce React API contracts, inline-complexity limits, collection readability, and UI/domain boundary expectations.
 
-This package is intended to be consumed through its exported entrypoints. The package name stays `eslint-meridian` for Meridian compatibility while the repository lives independently at `eslint-meridian`.
+This package is intended to be consumed through its exported entrypoints. The package name is `eslint-meridian` and the standalone repository is published from `the-erratic-ensemble/eslint-meridian`.
 
 ## Installation
 
@@ -31,9 +31,17 @@ pnpm add -D oxlint
 
 ## Current Status
 
-- This repository is split out for local development and eventual publication.
-- The package remains `UNLICENSED` and is configured for public npm publishing.
-- Meridian can consume it directly through a local path dependency during the transition.
+- The package is published publicly on npm as `eslint-meridian`.
+- The repository ships from GitHub with Release Please-driven versioning on `main`.
+- Meridian can still consume it directly through a local path dependency during local development.
+
+## License
+
+This repository is released under the [MIT License](LICENSE).
+
+## Development and Release
+
+For the maintainer workflow, including validation, versioning, and manual publish fallback, use [DEVELOPMENT.md](DEVELOPMENT.md).
 
 ## Public Contract
 

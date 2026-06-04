@@ -53,7 +53,7 @@
     "typescript"
   ],
   "author": "Meridian",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -75,6 +75,7 @@
     "configs",
     "oxlint",
     "rules",
+    "LICENSE",
     "package.json",
     "README.md",
     "CHANGELOG.md"
