@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/the-erratic-ensemble/eslint-meridian/compare/v1.0.1...v1.0.2) (2026-06-04)
+
+
+### Bug Fixes
+
+* clean up package docs and broken links ([#2](https://github.com/the-erratic-ensemble/eslint-meridian/issues/2)) ([e966413](https://github.com/the-erratic-ensemble/eslint-meridian/commit/e9664136659b3a3c65bafecf50f995bbd4c63745))
+
 ## [1.0.1](https://github.com/the-erratic-ensemble/eslint-meridian/compare/v1.0.0...v1.0.1) (2026-06-04)
 
 

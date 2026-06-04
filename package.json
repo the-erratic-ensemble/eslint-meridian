@@ -1,7 +1,7 @@
 {
   "name": "eslint-meridian",
   "displayName": "Meridian ESLint Rules",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Meridian-owned ESLint and Oxlint rules, profiles, and flat-config entrypoints for readability, React contracts, and boundary enforcement.",
   "type": "module",
   "repository": {
