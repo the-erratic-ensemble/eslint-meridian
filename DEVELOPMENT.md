@@ -43,7 +43,7 @@ When you push conventional commits to `main`, `.github/workflows/release-please.
 The workflow uses these repository secrets:
 
 - `RELEASE_PLEASE_TOKEN`: GitHub PAT used by Release Please so release PRs and releases can trigger downstream workflows.
-- `NPM_TOKEN`: npm token with publish rights for `@meridian/eslint-rules`.
+- `NPM_TOKEN`: npm token with publish rights for `@meridian/eslint-rules` and 2FA bypass enabled.
 
 ## Initial Private Publish
 
@@ -62,7 +62,7 @@ If you need to publish a one-off version manually:
 npm publish
 ```
 
-Make sure you have already authenticated with `npm login`, or provide a temporary user config that contains the auth token.
+Make sure you have already authenticated with `npm login`, or provide a temporary user config that contains a bypass-2FA publish token.
 
 ## Notes
 
