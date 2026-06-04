@@ -20,10 +20,10 @@ It targets `Set` and `Map` constructor inputs that inline more than a simple one
 
 ## Source of Truth
 
-- Implementation: [no-collection-constructor-pipelines.js](no-collection-constructor-pipelines.js)
+- Implementation: [no-collection-constructor-pipelines.js](../../rules/no-collection-constructor-pipelines.js)
 - Tests:
-  - [tests/rules/no-collection-constructor-pipelines.test.js](tests/rules/no-collection-constructor-pipelines.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-collection-constructor-pipelines.test.js](../../tests/rules/no-collection-constructor-pipelines.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

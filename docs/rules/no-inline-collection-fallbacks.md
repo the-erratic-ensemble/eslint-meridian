@@ -20,9 +20,9 @@ It targets standalone collection method calls that are immediately guarded by `?
 
 ## Source of Truth
 
-- Implementation: [no-inline-collection-fallbacks.js](no-inline-collection-fallbacks.js)
+- Implementation: [no-inline-collection-fallbacks.js](../../rules/no-inline-collection-fallbacks.js)
 - Tests:
-  - [tests/rules/no-inline-collection-fallbacks.test.js](tests/rules/no-inline-collection-fallbacks.test.js)
+  - [tests/rules/no-inline-collection-fallbacks.test.js](../../tests/rules/no-inline-collection-fallbacks.test.js)
 
 ## Rule Options
 
@@ -34,21 +34,31 @@ It targets standalone collection method calls that are immediately guarded by `?
 ### ❌ Incorrect
 
 ```js
-const jobs = response.jobs?.map((job) => ({ ...job, downloadUrl: normalizeReportDownloadUrl(job.downloadUrl) })) ?? [];
+const jobs =
+  response.jobs?.map((job) => ({
+    ...job,
+    downloadUrl: normalizeReportDownloadUrl(job.downloadUrl),
+  })) ?? [];
 ```
 
 ### ✅ Correct
 
 ```js
 const normalizedJobs =
-  response.jobs?.map((job) => ({ ...job, downloadUrl: normalizeReportDownloadUrl(job.downloadUrl) })) ?? [];
+  response.jobs?.map((job) => ({
+    ...job,
+    downloadUrl: normalizeReportDownloadUrl(job.downloadUrl),
+  })) ?? [];
 return { ...response, jobs: normalizedJobs };
 ```
 
 ### ❌ Incorrect (multiple transformed fallbacks)
 
 ```js
-const preferred = primaryRows.find((row) => row.isPrimary) ?? fallbackRows.filter((row) => row.isFallback) ?? [];
+const preferred =
+  primaryRows.find((row) => row.isPrimary) ??
+  fallbackRows.filter((row) => row.isFallback) ??
+  [];
 ```
 
 ## Refactor Direction

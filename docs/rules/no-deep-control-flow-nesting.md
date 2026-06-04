@@ -20,10 +20,10 @@ It counts nested statements such as `if`, `switch`, and loops while avoiding com
 
 ## Source of Truth
 
-- Implementation: [no-deep-control-flow-nesting.js](no-deep-control-flow-nesting.js)
+- Implementation: [no-deep-control-flow-nesting.js](../../rules/no-deep-control-flow-nesting.js)
 - Tests:
-  - [tests/rules/no-deep-control-flow-nesting.test.js](tests/rules/no-deep-control-flow-nesting.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-deep-control-flow-nesting.test.js](../../tests/rules/no-deep-control-flow-nesting.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

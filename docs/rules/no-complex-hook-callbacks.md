@@ -20,7 +20,7 @@ It flags hook callbacks with too much control flow, setup, or nested logic. The 
 
 ## Source of Truth
 
-- Implementation: [no-complex-hook-callbacks.js](no-complex-hook-callbacks.js)
+- Implementation: [no-complex-hook-callbacks.js](../../rules/no-complex-hook-callbacks.js)
 - Tests: No standalone rule test file exists yet. Current coverage is indirect through profile or package-level validation, so treat docs and implementation as the primary sources until dedicated tests land.
 
 ## Rule Options

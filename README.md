@@ -26,14 +26,14 @@ pnpm add -D oxlint
 | ESLint           | `^10.0.0`                                                  |
 | Config style     | Flat config only                                           |
 | TypeScript / TSX | Provide `@typescript-eslint/parser` in the consumer config |
-| Package manager  | `pnpm >=10.0.0` for Meridian-maintained workflows          |
+| Package manager  | `pnpm >=10.0.0` for the documented maintainer commands     |
 | Oxlint           | Optional; use the exported JSON profile and plugin wrapper |
 
 ## Current Status
 
 - The package is published publicly on npm as `eslint-meridian`.
 - The repository ships from GitHub with Release Please-driven versioning on `main`.
-- Meridian can still consume it directly through a local path dependency during local development.
+- The package can still be consumed through a local path dependency during development.
 
 ## License
 
@@ -47,8 +47,8 @@ For the maintainer workflow, including validation, versioning, and manual publis
 
 Prefer these exports over deep imports:
 
-| Export                                                    | Purpose                                                     |
-| --------------------------------------------------------- | ----------------------------------------------------------- |
+| Export                                             | Purpose                                                     |
+| -------------------------------------------------- | ----------------------------------------------------------- |
 | `eslint-meridian`                                  | Canonical `meridian-local` ESLint plugin                    |
 | `eslint-meridian/profile.js`                       | Raw additive `recommended`, `strict`, and `pilot` rule maps |
 | `eslint-meridian/configs`                          | Named flat-config fragments and grouped rule maps           |
@@ -73,7 +73,7 @@ The package keeps three additive profiles:
 - `strict`: `recommended` plus stronger boundary/readability rules that remain off by default
 - `pilot`: `strict` plus the next deliberate rollout candidate
 
-If you want one taxonomy only, use the grouped configs instead of reconstructing rule lists from docs prose.
+If you only want one taxonomy, use the grouped configs instead of reconstructing rule lists from prose.
 
 ## ESLint Usage
 
@@ -92,12 +92,12 @@ export default [
         ecmaVersion: "latest",
         sourceType: "module",
         ecmaFeatures: {
-          jsx: true
-        }
-      }
+          jsx: true,
+        },
+      },
     },
-    ...meridianLocalRecommendedConfig
-  }
+    ...meridianLocalRecommendedConfig,
+  },
 ];
 ```
 
@@ -111,10 +111,10 @@ export default [
   {
     files: ["src/features/search/**/*.{ts,tsx}"],
     languageOptions: {
-      parser: tseslintParser
+      parser: tseslintParser,
     },
-    ...meridianLocalCollectionReadabilityConfig
-  }
+    ...meridianLocalCollectionReadabilityConfig,
+  },
 ];
 ```
 
@@ -131,16 +131,16 @@ export default [
   {
     files: ["src/routes/**/*.tsx"],
     languageOptions: {
-      parser: tseslintParser
+      parser: tseslintParser,
     },
     plugins: {
-      "meridian-local": meridianLocalRules
+      "meridian-local": meridianLocalRules,
     },
     rules: {
       ...strictRules,
-      "meridian-local/no-mixed-ui-and-domain-logic-in-component": "off"
-    }
-  }
+      "meridian-local/no-mixed-ui-and-domain-logic-in-component": "off",
+    },
+  },
 ];
 ```
 
@@ -155,7 +155,7 @@ Use the package profile directly:
 }
 ```
 
-If your tooling resolves package exports directly for JSON and plugin paths, use the package specifier instead of `node_modules` paths. The package contract is the exported file, not a repo-relative Meridian path.
+If your tooling resolves package exports directly for JSON and plugin paths, use the package specifier instead of `node_modules` paths. The package contract is the exported file, not a path into this repository.
 
 ## Rule Groupings
 

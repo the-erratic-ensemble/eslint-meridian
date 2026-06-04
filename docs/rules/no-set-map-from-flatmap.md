@@ -20,10 +20,10 @@ It specifically targets `new Set(...)` and `new Map(...)` calls whose source is 
 
 ## Source of Truth
 
-- Implementation: [no-set-map-from-flatmap.js](no-set-map-from-flatmap.js)
+- Implementation: [no-set-map-from-flatmap.js](../../rules/no-set-map-from-flatmap.js)
 - Tests:
-  - [tests/rules/no-set-map-from-flatmap.test.js](tests/rules/no-set-map-from-flatmap.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-set-map-from-flatmap.test.js](../../tests/rules/no-set-map-from-flatmap.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

@@ -21,9 +21,9 @@ It also inspects collection calls nested inside JSX conditionals or logical expr
 
 ## Source of Truth
 
-- Implementation: [no-complex-jsx-collection-callback.js](no-complex-jsx-collection-callback.js)
+- Implementation: [no-complex-jsx-collection-callback.js](../../rules/no-complex-jsx-collection-callback.js)
 - Tests:
-  - [tests/rules/no-complex-jsx-collection-callback.test.js](tests/rules/no-complex-jsx-collection-callback.test.js)
+  - [tests/rules/no-complex-jsx-collection-callback.test.js](../../tests/rules/no-complex-jsx-collection-callback.test.js)
 
 ## Rule Options
 
@@ -51,7 +51,8 @@ items.map((item) => {
 ### ✅ Correct
 
 ```jsx
-const renderItem = (item) => (item.label?.trim() ? <Tile title={item.label} /> : null);
+const renderItem = (item) =>
+  item.label?.trim() ? <Tile title={item.label} /> : null;
 items.map(renderItem);
 ```
 

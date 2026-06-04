@@ -20,7 +20,7 @@ It checks `.jsx` and `.tsx` files that define top-level React components and req
 
 ## Source of Truth
 
-- Implementation: [react-component-filename-pascal-case.js](react-component-filename-pascal-case.js)
+- Implementation: [react-component-filename-pascal-case.js](../../rules/react-component-filename-pascal-case.js)
 - Tests: No standalone rule test file exists yet. Current coverage is indirect through profile or package-level validation, so treat docs and implementation as the primary sources until dedicated tests land.
 
 ## Rule Options

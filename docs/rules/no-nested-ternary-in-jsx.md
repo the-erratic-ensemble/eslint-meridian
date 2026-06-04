@@ -20,10 +20,10 @@ It flags ternaries nested directly inside JSX render paths.
 
 ## Source of Truth
 
-- Implementation: [no-nested-ternary-in-jsx.js](no-nested-ternary-in-jsx.js)
+- Implementation: [no-nested-ternary-in-jsx.js](../../rules/no-nested-ternary-in-jsx.js)
 - Tests:
-  - [tests/rules/no-nested-ternary-in-jsx.test.js](tests/rules/no-nested-ternary-in-jsx.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-nested-ternary-in-jsx.test.js](../../tests/rules/no-nested-ternary-in-jsx.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

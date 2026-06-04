@@ -20,10 +20,10 @@ It reports ternary branches that perform collection transformations inline. This
 
 ## Source of Truth
 
-- Implementation: [no-collection-methods-in-ternaries.js](no-collection-methods-in-ternaries.js)
+- Implementation: [no-collection-methods-in-ternaries.js](../../rules/no-collection-methods-in-ternaries.js)
 - Tests:
-  - [tests/rules/no-collection-methods-in-ternaries.test.js](tests/rules/no-collection-methods-in-ternaries.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-collection-methods-in-ternaries.test.js](../../tests/rules/no-collection-methods-in-ternaries.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 
@@ -34,7 +34,9 @@ It reports ternary branches that perform collection transformations inline. This
 ### ❌ Incorrect
 
 ```js
-const visible = isAdmin ? rows.filter((row) => row.visible) : rows.map((row) => row.visible);
+const visible = isAdmin
+  ? rows.filter((row) => row.visible)
+  : rows.map((row) => row.visible);
 ```
 
 ### ✅ Correct

@@ -23,10 +23,10 @@ There is no required starting method or preferred order. Any tracked sequence su
 
 ## Source of Truth
 
-- Implementation: [no-long-collection-method-chains.js](no-long-collection-method-chains.js)
+- Implementation: [no-long-collection-method-chains.js](../../rules/no-long-collection-method-chains.js)
 - Tests:
-  - [tests/rules/no-long-collection-method-chains.test.js](tests/rules/no-long-collection-method-chains.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-long-collection-method-chains.test.js](../../tests/rules/no-long-collection-method-chains.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 
@@ -74,7 +74,10 @@ const normalizedPostcodes = postcodes
   .filter(Boolean)
   .slice(0, MAX_HISTORY_ITEMS);
 
-const scopedEntries = normalizedPostcodes.map((value, index) => ({ value, index }));
+const scopedEntries = normalizedPostcodes.map((value, index) => ({
+  value,
+  index,
+}));
 ```
 
 ## Edge Cases and False Positives

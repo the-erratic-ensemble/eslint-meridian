@@ -20,10 +20,10 @@ It looks for fallback chains where an indexed access depends on an inlined colle
 
 ## Source of Truth
 
-- Implementation: [no-indexed-collection-pipeline-fallbacks.js](no-indexed-collection-pipeline-fallbacks.js)
+- Implementation: [no-indexed-collection-pipeline-fallbacks.js](../../rules/no-indexed-collection-pipeline-fallbacks.js)
 - Tests:
-  - [tests/rules/no-indexed-collection-pipeline-fallbacks.test.js](tests/rules/no-indexed-collection-pipeline-fallbacks.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-indexed-collection-pipeline-fallbacks.test.js](../../tests/rules/no-indexed-collection-pipeline-fallbacks.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

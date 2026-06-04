@@ -22,10 +22,10 @@ The rule intentionally does not cross function boundaries, so helper callbacks a
 
 ## Source of Truth
 
-- Implementation: [no-nested-try.js](no-nested-try.js)
+- Implementation: [no-nested-try.js](../../rules/no-nested-try.js)
 - Tests:
-  - [tests/rules/no-nested-try.test.js](tests/rules/no-nested-try.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-nested-try.test.js](../../tests/rules/no-nested-try.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

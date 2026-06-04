@@ -20,10 +20,10 @@ It looks for trivial sync effects where a hook callback only calls a setter with
 
 ## Source of Truth
 
-- Implementation: [no-state-sync-useeffect.js](no-state-sync-useeffect.js)
+- Implementation: [no-state-sync-useeffect.js](../../rules/no-state-sync-useeffect.js)
 - Tests:
-  - [tests/rules/no-state-sync-useeffect.test.js](tests/rules/no-state-sync-useeffect.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-state-sync-useeffect.test.js](../../tests/rules/no-state-sync-useeffect.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

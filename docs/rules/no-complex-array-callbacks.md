@@ -20,9 +20,9 @@ It watches array methods such as `map`, `filter`, `find`, `some`, `every`, `flat
 
 ## Source of Truth
 
-- Implementation: [no-complex-array-callbacks.js](no-complex-array-callbacks.js)
+- Implementation: [no-complex-array-callbacks.js](../../rules/no-complex-array-callbacks.js)
 - Tests:
-  - [tests/rules/no-complex-array-callbacks.test.js](tests/rules/no-complex-array-callbacks.test.js)
+  - [tests/rules/no-complex-array-callbacks.test.js](../../tests/rules/no-complex-array-callbacks.test.js)
 
 ## Rule Options
 

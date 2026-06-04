@@ -20,9 +20,9 @@ It catches ternaries used for assignments, declarations, or returns inside exist
 
 ## Source of Truth
 
-- Implementation: [no-ternary-in-branch-assignment.js](no-ternary-in-branch-assignment.js)
+- Implementation: [no-ternary-in-branch-assignment.js](../../rules/no-ternary-in-branch-assignment.js)
 - Tests:
-  - [tests/rules/no-ternary-in-branch-assignment.test.js](tests/rules/no-ternary-in-branch-assignment.test.js)
+  - [tests/rules/no-ternary-in-branch-assignment.test.js](../../tests/rules/no-ternary-in-branch-assignment.test.js)
 
 ## Rule Options
 

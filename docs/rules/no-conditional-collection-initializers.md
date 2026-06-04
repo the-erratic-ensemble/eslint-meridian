@@ -20,10 +20,10 @@ It focuses on variable declarations where a ternary produces an array or collect
 
 ## Source of Truth
 
-- Implementation: [no-conditional-collection-initializers.js](no-conditional-collection-initializers.js)
+- Implementation: [no-conditional-collection-initializers.js](../../rules/no-conditional-collection-initializers.js)
 - Tests:
-  - [tests/rules/no-conditional-collection-initializers.test.js](tests/rules/no-conditional-collection-initializers.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-conditional-collection-initializers.test.js](../../tests/rules/no-conditional-collection-initializers.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

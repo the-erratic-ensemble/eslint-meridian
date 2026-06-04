@@ -20,10 +20,10 @@ It tracks repeated collection method calls on the same receiver across `??` and 
 
 ## Source of Truth
 
-- Implementation: [no-repeated-collection-method-fallbacks.js](no-repeated-collection-method-fallbacks.js)
+- Implementation: [no-repeated-collection-method-fallbacks.js](../../rules/no-repeated-collection-method-fallbacks.js)
 - Tests:
-  - [tests/rules/no-repeated-collection-method-fallbacks.test.js](tests/rules/no-repeated-collection-method-fallbacks.test.js)
-  - [tests/rules/oxlint-meridian-local-plugin.test.js](tests/rules/oxlint-meridian-local-plugin.test.js)
+  - [tests/rules/no-repeated-collection-method-fallbacks.test.js](../../tests/rules/no-repeated-collection-method-fallbacks.test.js)
+  - [tests/rules/oxlint-meridian-local-plugin.test.js](../../tests/rules/oxlint-meridian-local-plugin.test.js)
 
 ## Rule Options
 

@@ -26,10 +26,10 @@ It does not warn on richer config/data objects whose nested fields include JSX, 
 
 ## Source of Truth
 
-- Implementation: [no-jsx-in-variables.js](no-jsx-in-variables.js)
+- Implementation: [no-jsx-in-variables.js](../../rules/no-jsx-in-variables.js)
 - Tests:
-  - [tests/rules/no-jsx-in-variables.test.js](tests/rules/no-jsx-in-variables.test.js)
-  - [tests/rules/eslint-local-inline-rules.test.js](tests/rules/eslint-local-inline-rules.test.js)
+  - [tests/rules/no-jsx-in-variables.test.js](../../tests/rules/no-jsx-in-variables.test.js)
+  - [tests/rules/eslint-local-inline-rules.test.js](../../tests/rules/eslint-local-inline-rules.test.js)
 
 ## Rule Options
 
@@ -46,7 +46,7 @@ const panel = showPanel ? <Panel /> : null;
 ```tsx
 const sectionsMap: Record<TabId, React.ReactNode> = {
   overview: <OverviewPanel />,
-  settings: <SettingsPanel />
+  settings: <SettingsPanel />,
 };
 ```
 
@@ -68,7 +68,7 @@ return (
 ```tsx
 const tabPanels = {
   overview: OverviewPanel,
-  settings: SettingsPanel
+  settings: SettingsPanel,
 } as const;
 
 const ActivePanel = tabPanels[activeTab];
@@ -80,7 +80,7 @@ return <ActivePanel />;
 const menuAction = {
   label: "Area",
   description: "Open the area overview.",
-  icon: <MapPin size={14} />
+  icon: <MapPin size={14} />,
 };
 ```
 
@@ -113,23 +113,29 @@ const ACCESS_PANEL_CONFIGS: Record<ApiAccessState, AccessPanelConfig> = {
     description: "Upgrade your plan to unlock API credentials.",
     buttonLabel: "Contact support",
     buttonVariant: "outline",
-    showIcon: true
+    showIcon: true,
   },
   self_serve: {
     title: "API access is enabled",
     description: "Contact support to provision credentials.",
     buttonLabel: "Contact support",
-    buttonVariant: "outline"
+    buttonVariant: "outline",
   },
   sales_setup: {
     title: "API access requires setup",
     description: "We handle setup through the sales team.",
     buttonLabel: "Contact support",
-    buttonVariant: "primary"
-  }
+    buttonVariant: "primary",
+  },
 };
 
-function ApiAccessCard({ config, onContactSales }: { config: AccessPanelConfig; onContactSales: () => void }): JSX.Element {
+function ApiAccessCard({
+  config,
+  onContactSales,
+}: {
+  config: AccessPanelConfig;
+  onContactSales: () => void;
+}): JSX.Element {
   return (
     <div>
       {config.showIcon ? <ApiAccessIcon /> : null}

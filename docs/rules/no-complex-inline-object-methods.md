@@ -20,9 +20,9 @@ It catches inline object-literal methods whose internal logic is dense even if t
 
 ## Source of Truth
 
-- Implementation: [no-complex-inline-object-methods.js](no-complex-inline-object-methods.js)
+- Implementation: [no-complex-inline-object-methods.js](../../rules/no-complex-inline-object-methods.js)
 - Tests:
-  - [tests/rules/no-complex-inline-object-methods.test.js](tests/rules/no-complex-inline-object-methods.test.js)
+  - [tests/rules/no-complex-inline-object-methods.test.js](../../tests/rules/no-complex-inline-object-methods.test.js)
 
 ## Rule Options
 
@@ -36,7 +36,8 @@ It catches inline object-literal methods whose internal logic is dense even if t
 
 ```js
 const config = {
-  build: (item) => item?.value || (item.active && item.ready ? format(item) : null)
+  build: (item) =>
+    item?.value || (item.active && item.ready ? format(item) : null),
 };
 ```
 
