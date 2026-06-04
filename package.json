@@ -37,8 +37,10 @@
     "test:rules": "node --test tests/rules/**/*.test.js",
     "generate:docs": "node scripts/generate-rule-index.mjs",
     "check:docs": "node scripts/check-rule-docs.mjs",
+    "release:validate": "pnpm check:docs && pnpm test:rules",
     "format": "prettier --write \"**/*.{js,mjs,ts,json,md}\"",
-    "format:check": "prettier --check \"**/*.{js,mjs,ts,json,md}\""
+    "format:check": "prettier --check \"**/*.{js,mjs,ts,json,md}\"",
+    "prepublishOnly": "pnpm release:validate"
   },
   "keywords": [
     "eslint",

@@ -11,19 +11,18 @@ pnpm install
 2. Authenticate npm when you need to publish:
 
 ```bash
-npm login --scope=@meridian --registry=https://registry.npmjs.org/
+npm login --registry=https://registry.npmjs.org/
 ```
 
-The repository `.npmrc` only pins the `@meridian` scope to npm. Auth stays outside the repo.
+Auth stays outside the repo. The package is unscoped and publishes as `eslint-meridian`.
 
 ## Normal Edit Loop
 
 - Change rule code, docs, configs, or tests.
-- Run the narrow checks that matter:
+- Run the release validation gate before pushing:
 
 ```bash
-pnpm check:docs
-node --test tests/rules/meridian-local-profiles.test.js tests/rules/oxlint-meridian-local-plugin.test.js
+pnpm release:validate
 ```
 
 - Commit with Conventional Commits. Release Please uses these prefixes for versioning:
@@ -39,6 +38,8 @@ When you push conventional commits to `main`, `.github/workflows/release-please.
 
 1. Opens or updates a Release Please PR with the next version and changelog changes.
 2. After that release PR is merged, creates the GitHub release and publishes the package to npm.
+
+You can also run the workflow manually from GitHub Actions with `workflow_dispatch` if you need to re-run the release job after fixing an external issue such as npm auth.
 
 The workflow uses these repository secrets:
 
@@ -56,9 +57,10 @@ Package metadata that controls this lives in `package.json`:
 
 ## Manual Publish Fallback
 
-If you need to publish a one-off version manually:
+If you need to publish a one-off version manually instead of waiting for Release Please:
 
 ```bash
+pnpm release:validate
 npm publish
 ```
 
@@ -69,3 +71,4 @@ Make sure you have already authenticated with `npm login`, or provide a temporar
 - Keep `CHANGELOG.md` under Release Please control.
 - Keep `.release-please-manifest.json` aligned with the most recently published version.
 - Meridian can continue using the local repo for development even after public npm publishing is enabled.
+- `prepublishOnly` runs `pnpm release:validate`, so manual `npm publish` will fail fast if docs or rule tests are out of sync.

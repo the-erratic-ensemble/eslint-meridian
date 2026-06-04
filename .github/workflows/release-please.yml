@@ -1,6 +1,7 @@
 name: release-please
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -45,15 +46,11 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         run: pnpm install --frozen-lockfile
 
-      - name: Validate rule docs
+      - name: Validate release surface
         if: ${{ steps.release.outputs.release_created }}
-        run: pnpm check:docs
+        run: pnpm release:validate
 
-      - name: Validate publish-critical tests
-        if: ${{ steps.release.outputs.release_created }}
-        run: node --test tests/rules/meridian-local-profiles.test.js tests/rules/oxlint-meridian-local-plugin.test.js
-
-      - name: Publish private package
+      - name: Publish npm package
         if: ${{ steps.release.outputs.release_created }}
         run: npm publish
         env:
