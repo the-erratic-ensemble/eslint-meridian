@@ -15,7 +15,7 @@ related:
 
 # Meridian Custom Lint Rules Maintainer Guide
 
-Use this guide when you are changing the rule inventory owned by `@meridian/eslint-rules`.
+Use this guide when you are changing the rule inventory owned by `eslint-meridian`.
 
 This package owns implementation and profile artifacts. Shared preset wiring belongs in `@meridian/config`, not here.
 
@@ -24,10 +24,10 @@ This package owns implementation and profile artifacts. Shared preset wiring bel
 Keep these contracts stable unless you are executing an intentional breaking change review:
 
 - exported rule IDs stay under the `meridian-local/*` namespace
-- `eslint-local-rules.js` is the canonical ESLint plugin export
+- `rules/eslint-local-rules.js` is the canonical ESLint plugin export
 - `configs/index.js` is the canonical grouped config export surface
 - `oxlint/meridian-local-rules.json` is the canonical `recommended` profile artifact
-- `profile.js` layers `strict` and `pilot` additively on top of that canonical JSON
+- `rules/profile.js` layers `strict` and `pilot` additively on top of that canonical JSON
 - `rules/index.js` is the only supported raw rule-module export surface
 - profile and parity tests in `tests/rules/` must stay aligned with the exported inventory
 
@@ -45,11 +45,11 @@ Add it here only if it encodes Meridian-specific readability, naming, or boundar
 - optimize for the future suppression comment, not just the filename
 - avoid renaming shipped IDs casually; the rule ID is the operator contract
 
-3. Add the implementation module in the package root.
+3. Add the implementation module in `rules/`.
 
-Create `<rule-file>.js` and keep the implementation self-contained unless shared AST helpers already exist in `eslint-local-rules-shared.js`.
+Create `rules/<rule-file>.js` and keep the implementation self-contained unless shared AST helpers already exist in `rules/eslint-local-rules-shared.js`.
 
-4. Export the rule from [`eslint-local-rules.js`](eslint-local-rules.js).
+4. Export the rule from [`rules/eslint-local-rules.js`](rules/eslint-local-rules.js).
 
 Add both:
 
@@ -63,7 +63,7 @@ If the rule is intentionally part of the raw rule-module surface, also export it
 5. Decide profile placement.
 
 - add the rule to `oxlint/meridian-local-rules.json` if it belongs in `recommended`
-- add it to `STRICT_ADDITIONS` in [`profile.js`](profile.js) if it should remain off in `recommended` but on in `strict`
+- add it to `STRICT_ADDITIONS` in [`rules/profile.js`](rules/profile.js) if it should remain off in `recommended` but on in `strict`
 - add it to `PILOT_OVERRIDES` only for deliberate trial rollout
 
 Do not create a fourth profile casually. Existing config consumers expect `recommended`, `strict`, and `pilot`.
@@ -172,7 +172,7 @@ That means promotion decisions should assume real downstream blast radius, even 
 
 ## Common Failure Modes
 
-- Implementing the rule but forgetting to export it from `eslint-local-rules.js`
+- Implementing the rule but forgetting to export it from `rules/eslint-local-rules.js`
 - Editing the JS profile overlays without updating the parity test expectations
 - Adding a grouped config or export alias without adding a config-surface test
 - Adding a rule to `recommended` in JS instead of the canonical Oxlint JSON
@@ -193,7 +193,7 @@ That means promotion decisions should assume real downstream blast radius, even 
 6. Write the rule doc in `docs/rules/`.
 7. Re-check the operator guide if the taxonomy or rollout guidance changed.
 8. Add a dated `CHANGELOG.md` entry if the shipped contract, adoption guidance, or maintainer workflow changed.
-9. Regenerate `docs/rules/index.md` with `pnpm --filter @meridian/eslint-rules generate:docs`.
+9. Regenerate `docs/rules/index.md` with `pnpm --filter eslint-meridian generate:docs`.
 
 ## Changelog Discipline
 
@@ -214,11 +214,11 @@ Keep entries specific enough that another maintainer can answer "what changed fo
 Run the package-local checks before handing off the change:
 
 ```bash
-pnpm --filter @meridian/eslint-rules generate:docs
-pnpm --filter @meridian/eslint-rules lint
-pnpm --filter @meridian/eslint-rules test:rules
-pnpm --filter @meridian/eslint-rules check:docs
-pnpm --filter @meridian/eslint-rules format:check
+pnpm --filter eslint-meridian generate:docs
+pnpm --filter eslint-meridian lint
+pnpm --filter eslint-meridian test:rules
+pnpm --filter eslint-meridian check:docs
+pnpm --filter eslint-meridian format:check
 ```
 
 If profile membership changed, confirm the expectations in [`tests/rules/meridian-local-profiles.test.js`](tests/rules/meridian-local-profiles.test.js) still match the shipped profile layers.

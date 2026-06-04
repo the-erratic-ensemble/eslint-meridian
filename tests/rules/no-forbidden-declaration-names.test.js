@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-forbidden-declaration-names.js";
+import rule from "../../rules/no-forbidden-declaration-names.js";
 import { runRule, tsParser } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-forbidden-declaration-names";

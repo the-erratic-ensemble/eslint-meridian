@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-jsx-in-variables.js";
+import rule from "../../rules/no-jsx-in-variables.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-jsx-in-variables";

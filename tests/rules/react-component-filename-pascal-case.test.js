@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../react-component-filename-pascal-case.js";
+import rule from "../../rules/react-component-filename-pascal-case.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "react-component-filename-pascal-case";

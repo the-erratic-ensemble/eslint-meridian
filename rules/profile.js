@@ -1,7 +1,7 @@
 import fs from "node:fs";
 
 const recommendedOxlintRuleConfig = JSON.parse(
-  fs.readFileSync(new URL("oxlint/meridian-local-rules.json", import.meta.url), "utf8")
+  fs.readFileSync(new URL("../oxlint/meridian-local-rules.json", import.meta.url), "utf8")
 );
 
 const STRICT_ADDITIONS = {

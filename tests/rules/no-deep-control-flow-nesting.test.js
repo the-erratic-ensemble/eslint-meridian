@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-deep-control-flow-nesting.js";
+import rule from "../../rules/no-deep-control-flow-nesting.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-deep-control-flow-nesting";

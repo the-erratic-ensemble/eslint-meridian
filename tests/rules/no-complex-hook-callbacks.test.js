@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-complex-hook-callbacks.js";
+import rule from "../../rules/no-complex-hook-callbacks.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-complex-hook-callbacks";

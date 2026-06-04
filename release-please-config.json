@@ -4,7 +4,7 @@
   "packages": {
     ".": {
       "release-type": "node",
-      "package-name": "@meridian/eslint-rules"
+      "package-name": "eslint-meridian"
     }
   }
 }

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-set-map-from-flatmap.js";
+import rule from "../../rules/no-set-map-from-flatmap.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-set-map-from-flatmap";

@@ -80,7 +80,7 @@ const LOCAL_RULES = {
 
 const meridianLocalRulesPlugin = {
   meta: {
-    name: "@meridian/eslint-local-rules"
+    name: "eslint-meridian"
   },
   rules: LOCAL_RULES
 };

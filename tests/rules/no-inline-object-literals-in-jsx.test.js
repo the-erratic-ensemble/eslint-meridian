@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-inline-object-literals-in-jsx.js";
+import rule from "../../rules/no-inline-object-literals-in-jsx.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-inline-object-literals-in-jsx";

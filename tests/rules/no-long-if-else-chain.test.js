@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-long-if-else-chain.js";
+import rule from "../../rules/no-long-if-else-chain.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-long-if-else-chain";

@@ -1,9 +1,9 @@
-import meridianLocalRulesPlugin from "../eslint-local-rules.js";
+import meridianLocalRulesPlugin from "../rules/eslint-local-rules.js";
 import {
   meridianLocalPilotRuleProfile,
   meridianLocalRecommendedRuleProfile,
   meridianLocalStrictRuleProfile
-} from "../profile.js";
+} from "../rules/profile.js";
 
 const defaultRuleLevel = "warn";
 

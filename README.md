@@ -1,15 +1,15 @@
-# @meridian/eslint-rules
+# eslint-meridian
 
 Standalone repository for the Meridian ESLint and Oxlint rules that enforce React API contracts, inline-complexity limits, collection readability, and UI/domain boundary expectations.
 
-This package is intended to be consumed through its exported entrypoints. The package name stays `@meridian/eslint-rules` for Meridian compatibility while the repository lives independently at `eslint-meridian`.
+This package is intended to be consumed through its exported entrypoints. The package name stays `eslint-meridian` for Meridian compatibility while the repository lives independently at `eslint-meridian`.
 
 ## Installation
 
 Required:
 
 ```bash
-pnpm add -D @meridian/eslint-rules eslint @typescript-eslint/parser
+pnpm add -D eslint-meridian eslint @typescript-eslint/parser
 ```
 
 Optional:
@@ -41,21 +41,21 @@ Prefer these exports over deep imports:
 
 | Export                                                    | Purpose                                                     |
 | --------------------------------------------------------- | ----------------------------------------------------------- |
-| `@meridian/eslint-rules`                                  | Canonical `meridian-local` ESLint plugin                    |
-| `@meridian/eslint-rules/profile.js`                       | Raw additive `recommended`, `strict`, and `pilot` rule maps |
-| `@meridian/eslint-rules/configs`                          | Named flat-config fragments and grouped rule maps           |
-| `@meridian/eslint-rules/configs/recommended`              | Ready-to-use `recommended` flat-config fragment             |
-| `@meridian/eslint-rules/configs/strict`                   | Ready-to-use `strict` flat-config fragment                  |
-| `@meridian/eslint-rules/configs/pilot`                    | Ready-to-use `pilot` flat-config fragment                   |
-| `@meridian/eslint-rules/configs/all`                      | Full exported rule inventory with default `warn` fallbacks  |
-| `@meridian/eslint-rules/configs/react-contract`           | React/component contract grouping                           |
-| `@meridian/eslint-rules/configs/callback-complexity`      | Inline callback complexity grouping                         |
-| `@meridian/eslint-rules/configs/control-flow`             | Control-flow readability grouping                           |
-| `@meridian/eslint-rules/configs/collection-readability`   | Collection readability grouping                             |
-| `@meridian/eslint-rules/configs/naming-boundaries`        | Naming and boundary grouping                                |
-| `@meridian/eslint-rules/rules`                            | Consistent named exports for raw rule modules               |
-| `@meridian/eslint-rules/oxlint/meridian-local-plugin.js`  | Oxlint JS plugin wrapper                                    |
-| `@meridian/eslint-rules/oxlint/meridian-local-rules.json` | Canonical Oxlint `recommended` profile                      |
+| `eslint-meridian`                                  | Canonical `meridian-local` ESLint plugin                    |
+| `eslint-meridian/profile.js`                       | Raw additive `recommended`, `strict`, and `pilot` rule maps |
+| `eslint-meridian/configs`                          | Named flat-config fragments and grouped rule maps           |
+| `eslint-meridian/configs/recommended`              | Ready-to-use `recommended` flat-config fragment             |
+| `eslint-meridian/configs/strict`                   | Ready-to-use `strict` flat-config fragment                  |
+| `eslint-meridian/configs/pilot`                    | Ready-to-use `pilot` flat-config fragment                   |
+| `eslint-meridian/configs/all`                      | Full exported rule inventory with default `warn` fallbacks  |
+| `eslint-meridian/configs/react-contract`           | React/component contract grouping                           |
+| `eslint-meridian/configs/callback-complexity`      | Inline callback complexity grouping                         |
+| `eslint-meridian/configs/control-flow`             | Control-flow readability grouping                           |
+| `eslint-meridian/configs/collection-readability`   | Collection readability grouping                             |
+| `eslint-meridian/configs/naming-boundaries`        | Naming and boundary grouping                                |
+| `eslint-meridian/rules`                            | Consistent named exports for raw rule modules               |
+| `eslint-meridian/oxlint/meridian-local-plugin.js`  | Oxlint JS plugin wrapper                                    |
+| `eslint-meridian/oxlint/meridian-local-rules.json` | Canonical Oxlint `recommended` profile                      |
 
 ## Profiles
 
@@ -73,7 +73,7 @@ If you want one taxonomy only, use the grouped configs instead of reconstructing
 
 ```javascript
 import tseslintParser from "@typescript-eslint/parser";
-import { meridianLocalRecommendedConfig } from "@meridian/eslint-rules/configs";
+import { meridianLocalRecommendedConfig } from "eslint-meridian/configs";
 
 export default [
   {
@@ -97,7 +97,7 @@ export default [
 
 ```javascript
 import tseslintParser from "@typescript-eslint/parser";
-import { meridianLocalCollectionReadabilityConfig } from "@meridian/eslint-rules/configs";
+import { meridianLocalCollectionReadabilityConfig } from "eslint-meridian/configs";
 
 export default [
   {
@@ -114,8 +114,8 @@ export default [
 
 ```javascript
 import tseslintParser from "@typescript-eslint/parser";
-import meridianLocalRules from "@meridian/eslint-rules";
-import { getMeridianLocalRuleProfile } from "@meridian/eslint-rules/profile.js";
+import meridianLocalRules from "eslint-meridian";
+import { getMeridianLocalRuleProfile } from "eslint-meridian/profile.js";
 
 const strictRules = getMeridianLocalRuleProfile("strict");
 
@@ -142,8 +142,8 @@ Use the package profile directly:
 
 ```json
 {
-  "plugins": ["./node_modules/@meridian/eslint-rules/oxlint/meridian-local-plugin.js"],
-  "extends": ["./node_modules/@meridian/eslint-rules/oxlint/meridian-local-rules.json"]
+  "plugins": ["./node_modules/eslint-meridian/oxlint/meridian-local-plugin.js"],
+  "extends": ["./node_modules/eslint-meridian/oxlint/meridian-local-rules.json"]
 }
 ```
 
@@ -151,7 +151,7 @@ If your tooling resolves package exports directly for JSON and plugin paths, use
 
 ## Rule Groupings
 
-`@meridian/eslint-rules/configs` exports these stable groupings:
+`eslint-meridian/configs` exports these stable groupings:
 
 - `meridianLocalReactContractConfig`
 - `meridianLocalCallbackComplexityConfig`

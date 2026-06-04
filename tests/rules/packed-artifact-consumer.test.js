@@ -62,9 +62,9 @@ function runPackedConsumerProbe() {
     fs.writeFileSync(
       probePath,
       `
-        import plugin from "@meridian/eslint-rules";
-        import * as configs from "@meridian/eslint-rules/configs";
-        import * as rules from "@meridian/eslint-rules/rules";
+        import plugin from "eslint-meridian";
+        import * as configs from "eslint-meridian/configs";
+        import * as rules from "eslint-meridian/rules";
 
         const pluginConfigFragment = {
           plugins: {
@@ -117,7 +117,7 @@ function getPackedConsumerProbe() {
 test("packed artifact exposes documented configs and rules entrypoints to consumers", () => {
   const probe = getPackedConsumerProbe();
 
-  assert.equal(probe.pluginMetaName, "@meridian/eslint-local-rules");
+  assert.equal(probe.pluginMetaName, "eslint-meridian");
   assert.equal(probe.recommendedConfigUsesPlugin, true);
   assert.equal(probe.hasRecommendedConfig, true);
   assert.equal(probe.hasRuleNamespaceExport, true);

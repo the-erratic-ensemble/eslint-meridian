@@ -1,5 +1,5 @@
 ---
-title: "@meridian/eslint-rules — Agent Guide"
+title: "eslint-meridian — Agent Guide"
 type: "reference"
 description: "Scope boundaries, export contracts, and migration traps for the Meridian-owned custom ESLint and Oxlint rule package."
 status: "active"
@@ -10,17 +10,17 @@ component: [packages, config]
 audience: "developer"
 ---
 
-# @meridian/eslint-rules — Agent Guide
+# eslint-meridian — Agent Guide
 
 ## Scope
 
 This package owns Meridian-specific lint rule implementation, including:
 
-- `eslint-local-rules.js` — canonical `meridian-local` plugin export
-- `eslint-local-rules-shared.js` — shared AST helpers for rule implementations
+- `rules/eslint-local-rules.js` — canonical `meridian-local` plugin export
+- `rules/eslint-local-rules-shared.js` — shared AST helpers for rule implementations
 - `configs/` — consumer-facing flat-config fragments and taxonomy groupings
 - Meridian-specific rule modules (`no-*.js`, `react19-no-forwardref.js`, `react-component-filename-pascal-case.js`)
-- `profile.js` — stable `recommended`, `strict`, and `pilot` rule profiles
+- `rules/profile.js` — stable `recommended`, `strict`, and `pilot` rule profiles
 - `rules/index.js` — consistent raw rule-module export surface
 - `oxlint/meridian-local-plugin.js` and `oxlint/meridian-local-rules.json`
 - `tests/rules/` parity and rule-level tests
@@ -36,16 +36,16 @@ This package owns Meridian-specific lint rule implementation, including:
 ## Import Patterns
 
 ```javascript
-import meridianLocalRules from "@meridian/eslint-rules";
-import { meridianLocalRecommendedRuleProfile } from "@meridian/eslint-rules/profile.js";
+import meridianLocalRules from "eslint-meridian";
+import { meridianLocalRecommendedRuleProfile } from "eslint-meridian/profile.js";
 ```
 
 ```javascript
-import { meridianLocalRecommendedConfig } from "@meridian/eslint-rules/configs";
+import { meridianLocalRecommendedConfig } from "eslint-meridian/configs";
 ```
 
 ```javascript
-import meridianLocalOxlintPlugin from "@meridian/eslint-rules/oxlint/meridian-local-plugin.js";
+import meridianLocalOxlintPlugin from "eslint-meridian/oxlint/meridian-local-plugin.js";
 ```
 
 ## Common Agent Traps

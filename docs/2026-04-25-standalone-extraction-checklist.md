@@ -1,7 +1,7 @@
 ---
 title: "Meridian Custom Lint Rules Standalone Extraction Checklist"
 type: "guide"
-description: "Checklist for moving @meridian/eslint-rules out of the Meridian monorepo into a standalone repository or broader distribution lane."
+description: "Checklist for moving eslint-meridian out of the Meridian monorepo into a standalone repository or broader distribution lane."
 status: "active"
 date created: "2026-04-25"
 date modified: "2026-04-25"
@@ -9,7 +9,7 @@ date modified: "2026-04-25"
 
 # Meridian Custom Lint Rules Standalone Extraction Checklist
 
-Use this checklist when `@meridian/eslint-rules` is being moved out of the Meridian monorepo or prepared for broader distribution than the current private standalone package.
+Use this checklist when `eslint-meridian` is being moved out of the Meridian monorepo or prepared for broader distribution than the current private standalone package.
 
 ## Package Contract
 

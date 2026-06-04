@@ -6,7 +6,7 @@ import {
   meridianLocalPilotRuleProfile,
   meridianLocalRecommendedRuleProfile,
   meridianLocalStrictRuleProfile
-} from "../../profile.js";
+} from "../../rules/profile.js";
 
 const PACKAGE_ROOT = path.resolve(import.meta.dirname, "../..");
 const CANONICAL_OXLINT_PROFILE_PATH = path.resolve(PACKAGE_ROOT, "oxlint/meridian-local-rules.json");

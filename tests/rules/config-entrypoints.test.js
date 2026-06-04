@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import meridianLocalRulesPlugin from "../../eslint-local-rules.js";
+import meridianLocalRulesPlugin from "../../rules/eslint-local-rules.js";
 import {
   createFlatConfig,
   createRuleSelection,

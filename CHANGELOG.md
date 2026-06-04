@@ -17,7 +17,7 @@
 - Hardened collection fallback receiver matching to use structural expression identity rather than raw source text.
 - Reduced callback-complexity overcounting by stopping nested helper internals from inflating the outer callback signal.
 - Added dedicated rule test files for previously smoke-only rules and added config-surface contract tests.
-- Added a packed-artifact consumer smoke so the published `@meridian/eslint-rules` entrypoints are validated through an installed tarball instead of only through local source imports.
+- Added a packed-artifact consumer smoke so the published `eslint-meridian` entrypoints are validated through an installed tarball instead of only through local source imports.
 - Single-sourced grouped config taxonomy metadata inside `configs/shared.js` instead of maintaining separate manual rule arrays for each group export.
 - Expanded `no-state-sync-useeffect` default hook coverage to include `useLayoutEffect`, and documented the exact-match behavior of `allowNames` for `no-forbidden-declaration-names`.
 - Added maintainer guidance for fast test-failure isolation and a standalone extraction checklist for future repo/package separation.
@@ -39,7 +39,7 @@
 
 ## 2026-04-19
 
-- Created `@meridian/eslint-rules` as the canonical home for Meridian-owned ESLint and Oxlint rule implementation.
+- Created `eslint-meridian` as the canonical home for Meridian-owned ESLint and Oxlint rule implementation.
 - Moved rule modules, shared helpers, Oxlint adapter files, and rule tests out of `@meridian/config`.
 - Added stable `recommended`, `strict`, and `pilot` rule profiles.
 - Retired the temporary `@meridian/config` rule-entry compatibility façade after confirming there were no in-repo consumers.

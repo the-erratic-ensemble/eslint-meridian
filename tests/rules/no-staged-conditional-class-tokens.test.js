@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-staged-conditional-class-tokens.js";
+import rule from "../../rules/no-staged-conditional-class-tokens.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-staged-conditional-class-tokens";

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-deep-optional-chaining-conditions.js";
+import rule from "../../rules/no-deep-optional-chaining-conditions.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-deep-optional-chaining-conditions";

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-collection-constructor-pipelines.js";
+import rule from "../../rules/no-collection-constructor-pipelines.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-collection-constructor-pipelines";

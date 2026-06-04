@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-inline-collection-fallbacks.js";
+import rule from "../../rules/no-inline-collection-fallbacks.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-inline-collection-fallbacks";

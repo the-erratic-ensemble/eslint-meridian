@@ -5,7 +5,7 @@ import {
   meridianLocalPilotRuleProfile,
   meridianLocalRecommendedRuleProfile,
   meridianLocalStrictRuleProfile
-} from "../profile.js";
+} from "../rules/profile.js";
 
 export const packageRoot = path.resolve(import.meta.dirname, "..");
 const rulesDocsDir = path.join(packageRoot, "docs", "rules");

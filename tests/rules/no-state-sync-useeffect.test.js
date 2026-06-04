@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-state-sync-useeffect.js";
+import rule from "../../rules/no-state-sync-useeffect.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-state-sync-useeffect";

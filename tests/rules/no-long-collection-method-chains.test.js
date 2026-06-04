@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-long-collection-method-chains.js";
+import rule from "../../rules/no-long-collection-method-chains.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-long-collection-method-chains";

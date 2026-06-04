@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-long-inline-object-methods.js";
+import rule from "../../rules/no-long-inline-object-methods.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-long-inline-object-methods";

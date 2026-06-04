@@ -14,7 +14,7 @@ related:
 
 # Meridian Custom Lint Rules Operator Guide
 
-Use this guide when you are consuming `@meridian/eslint-rules` from an app or package and need to decide:
+Use this guide when you are consuming `eslint-meridian` from an app or package and need to decide:
 
 - which `meridian-local` profile to enable
 - whether a warning should trigger a refactor or a suppression
@@ -32,7 +32,7 @@ Assume these requirements before enabling the package:
 - `@typescript-eslint/parser` for TypeScript or TSX surfaces
 - package entrypoints, not Meridian repo-relative paths
 
-Prefer the exported config fragments under `@meridian/eslint-rules/configs` unless you have a good reason to wire the plugin manually.
+Prefer the exported config fragments under `eslint-meridian/configs` unless you have a good reason to wire the plugin manually.
 
 ## Rule Taxonomy
 
@@ -101,13 +101,13 @@ These rules enforce Meridian naming and boundary expectations.
 
 ## Profile Matrix
 
-`profile.js` and the `configs/*` exports expose three stable profiles. They are additive on purpose.
+`rules/profile.js` and the `configs/*` exports expose three stable profiles. They are additive on purpose.
 
 | Profile | Source of truth | What it enables | When to use it |
 | --- | --- | --- | --- |
 | `recommended` | `oxlint/meridian-local-rules.json` | Current stable baseline | Default for production adoption |
-| `strict` | `recommended` plus JS additions in `profile.js` | Adds `no-deep-optional-chaining-conditions` and `no-mixed-ui-and-domain-logic-in-component` | Use when a surface already expects stricter boundary enforcement |
-| `pilot` | `strict` plus JS additions in `profile.js` | Adds `no-inline-object-literals-in-jsx` | Use only for bounded trial rollout |
+| `strict` | `recommended` plus JS additions in `rules/profile.js` | Adds `no-deep-optional-chaining-conditions` and `no-mixed-ui-and-domain-logic-in-component` | Use when a surface already expects stricter boundary enforcement |
+| `pilot` | `strict` plus JS additions in `rules/profile.js` | Adds `no-inline-object-literals-in-jsx` | Use only for bounded trial rollout |
 
 ## Profile Selection Guide
 
@@ -153,7 +153,7 @@ ESLint flat config:
 
 ```javascript
 import tseslintParser from "@typescript-eslint/parser";
-import { meridianLocalRecommendedConfig } from "@meridian/eslint-rules/configs";
+import { meridianLocalRecommendedConfig } from "eslint-meridian/configs";
 
 export default [
   {
@@ -170,7 +170,7 @@ Targeted `pilot` evaluation on one surface:
 
 ```javascript
 import tseslintParser from "@typescript-eslint/parser";
-import { meridianLocalPilotConfig } from "@meridian/eslint-rules/configs";
+import { meridianLocalPilotConfig } from "eslint-meridian/configs";
 
 export default [
   {
@@ -187,12 +187,12 @@ Oxlint consumer:
 
 ```json
 {
-  "plugins": ["./node_modules/@meridian/eslint-rules/oxlint/meridian-local-plugin.js"],
-  "extends": ["./node_modules/@meridian/eslint-rules/oxlint/meridian-local-rules.json"]
+  "plugins": ["./node_modules/eslint-meridian/oxlint/meridian-local-plugin.js"],
+  "extends": ["./node_modules/eslint-meridian/oxlint/meridian-local-rules.json"]
 }
 ```
 
-Keep consumer exceptions local. Do not edit `profile.js` just to make one surface quieter.
+Keep consumer exceptions local. Do not edit `rules/profile.js` just to make one surface quieter.
 
 ## Suppression Policy
 

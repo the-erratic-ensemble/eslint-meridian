@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-ternary-in-branch-assignment.js";
+import rule from "../../rules/no-ternary-in-branch-assignment.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-ternary-in-branch-assignment";

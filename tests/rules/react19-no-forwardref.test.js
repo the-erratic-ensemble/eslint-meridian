@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../react19-no-forwardref.js";
+import rule from "../../rules/react19-no-forwardref.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "react19-no-forwardref";

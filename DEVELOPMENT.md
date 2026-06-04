@@ -43,11 +43,11 @@ When you push conventional commits to `main`, `.github/workflows/release-please.
 The workflow uses these repository secrets:
 
 - `RELEASE_PLEASE_TOKEN`: GitHub PAT used by Release Please so release PRs and releases can trigger downstream workflows.
-- `NPM_TOKEN`: npm token with publish rights for `@meridian/eslint-rules` and 2FA bypass enabled.
+- `NPM_TOKEN`: npm token with publish rights for `eslint-meridian` and 2FA bypass enabled.
 
 ## Publish Mode
 
-This repository is configured to publish `@meridian/eslint-rules` as a public npm package.
+This repository is configured to publish `eslint-meridian` as a public npm package.
 
 Package metadata that controls this lives in `package.json`:
 

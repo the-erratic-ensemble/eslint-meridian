@@ -1,4 +1,4 @@
-import meridianLocalRulesPlugin from "../eslint-local-rules.js";
+import meridianLocalRulesPlugin from "../rules/eslint-local-rules.js";
 
 const meridianLocalOxlintPlugin = {
   meta: {

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import rule from "../../no-repeated-collection-method-fallbacks.js";
+import rule from "../../rules/no-repeated-collection-method-fallbacks.js";
 import { runRule } from "./rule-test-utilities.js";
 
 const RULE_NAME = "no-repeated-collection-method-fallbacks";
