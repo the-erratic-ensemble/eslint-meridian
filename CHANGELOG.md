@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/the-erratic-ensemble/eslint-meridian/compare/v1.0.0...v1.0.1) (2026-06-04)
+
+
+### Bug Fixes
+
+* align public package metadata ([e131c64](https://github.com/the-erratic-ensemble/eslint-meridian/commit/e131c64b43d9d1d12ffd59a72e330e19e4fd750e))
+
 ## 2026-04-29
 
 - Expanded `meridian-local/no-jsx-in-variables` so it now reports direct JSX lookup tables stored in object and array literals, while explicitly excluding config/data objects that only carry nested JSX fields such as icons.
