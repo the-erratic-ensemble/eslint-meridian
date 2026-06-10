@@ -82,3 +82,37 @@ test("does not count nested helper internals beyond the nested-function signal",
   assert.equal(messages[0].messageId, "complexCallback");
   assert.match(messages[0].message, /Do not nest extra functions inside the callback/);
 });
+
+test("reports dense predicate filter callbacks with too many boolean checks", () => {
+  const messages = runRule({
+    ruleName: RULE_NAME,
+    rule,
+    code: `
+      const fallbackGroups = groups.filter(
+        (group) =>
+          !usedGroupKeys.has(group.key) &&
+          !!group.nearestAmenityName &&
+          !!group.nearestDistanceLabel &&
+          (group.nearestDistanceMeters ?? 0) > 0
+      );
+    `
+  });
+
+  assert.equal(messages.length, 1);
+  assert.equal(messages[0].messageId, "complexCallback");
+  assert.match(messages[0].message, /Do not compress 4 boolean checks into the callback/);
+});
+
+test("allows short predicate callbacks under the logical-expression threshold", () => {
+  const messages = runRule({
+    ruleName: RULE_NAME,
+    rule,
+    code: `
+      const visibleGroups = groups.filter(
+        (group) => group.enabled && group.countWithin1000Meters > 0
+      );
+    `
+  });
+
+  assert.equal(messages.length, 0);
+});

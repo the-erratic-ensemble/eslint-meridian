@@ -55,6 +55,21 @@ function isWithinJsxExpressionContainer(node) {
   return false;
 }
 
+function countTrackedLogicalExpressions(node) {
+  let count = 0;
+
+  walkWithoutNestedFunctions(node, (child) => {
+    if (
+      child.type === "LogicalExpression" &&
+      (child.operator === "&&" || child.operator === "||")
+    ) {
+      count += 1;
+    }
+  });
+
+  return count;
+}
+
 /** @type {import("eslint").Rule.RuleModule} */
 export default {
   meta: {
@@ -78,6 +93,11 @@ export default {
           disallowLoops: { type: "boolean" },
           disallowNestedFunctions: { type: "boolean" },
           disallowTernary: { type: "boolean" },
+          logicalExpressionMethods: {
+            type: "array",
+            items: { type: "string" }
+          },
+          maxLogicalExpressions: { type: "integer", minimum: 1 },
           skipJsxCollectionMethods: {
             type: "array",
             items: { type: "string" }
@@ -102,6 +122,8 @@ export default {
       disallowLoops: true,
       disallowNestedFunctions: true,
       disallowTernary: false,
+      logicalExpressionMethods: ["filter", "find", "some", "every"],
+      maxLogicalExpressions: 2,
       skipJsxCollectionMethods: ["map", "flatMap"],
       ...(context.options[0] || {})
     };
@@ -155,6 +177,15 @@ export default {
             reasons.add("Do not use ternaries inside the callback");
           }
         });
+
+        if (options.logicalExpressionMethods.includes(method)) {
+          const logicalExpressionCount = countTrackedLogicalExpressions(callback.body);
+          if (logicalExpressionCount > options.maxLogicalExpressions) {
+            reasons.add(
+              `Do not compress ${logicalExpressionCount + 1} boolean checks into the callback`
+            );
+          }
+        }
 
         if (reasons.size === 0) return;
 
