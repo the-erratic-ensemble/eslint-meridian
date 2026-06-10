@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/the-erratic-ensemble/eslint-meridian/compare/v1.0.2...v1.1.0) (2026-06-10)
+
+
+### Features
+
+* add chart rendering and jsx readability rules ([a363f15](https://github.com/the-erratic-ensemble/eslint-meridian/commit/a363f155a8826aff7059351271d1538297554764))
+
 ## 2026-06-09
 
 - Added `meridian-local/no-excessive-component-props` to flag React components that expose more than the configured top-level prop count.
