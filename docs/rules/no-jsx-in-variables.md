@@ -12,6 +12,9 @@ The rule is intentionally narrow. It targets stored render payloads, not every o
 
 It warns when JSX is assigned directly to a variable instead of being returned inline or extracted into a component.
 
+It also warns when a variable stores the result of calling a local helper that is explicitly typed to return `JSX.Element`, `JSX.Element | null`, or a similar JSX-like return type.
+That case is more prescriptive than the generic warning: the intended refactor is to convert the helper into a component and render it with JSX instead of storing the helper result.
+
 It also warns when a variable is used as a lookup table of direct JSX payloads, for example a `Record<Status, ReactNode>` where each entry is a JSX branch.
 
 It does not warn on richer config/data objects whose nested fields include JSX, such as `icon: <MapPin />`.
@@ -44,6 +47,22 @@ const panel = showPanel ? <Panel /> : null;
 ```
 
 ```tsx
+function availabilityDisclosureNode(model: Model): JSX.Element | null {
+  if (!model.hasAvailability) {
+    return null;
+  }
+
+  return <AvailabilityDisclosure model={model} />;
+}
+
+const availabilityDisclosure = availabilityDisclosureNode(model);
+```
+
+```tsx
+const errorContent = result.kind === "ok" ? null : errorCard(result);
+```
+
+```tsx
 const sectionsMap: Record<TabId, React.ReactNode> = {
   overview: <OverviewPanel />,
   settings: <SettingsPanel />,
@@ -54,6 +73,22 @@ const sectionsMap: Record<TabId, React.ReactNode> = {
 
 ```tsx
 return showPanel ? <Panel /> : null;
+```
+
+```tsx
+function AvailabilityDisclosureNode({
+  model,
+}: {
+  model: Model;
+}): JSX.Element | null {
+  if (!model.hasAvailability) {
+    return null;
+  }
+
+  return <AvailabilityDisclosure model={model} />;
+}
+
+return <AvailabilityDisclosureNode model={model} />;
 ```
 
 ```tsx
@@ -87,6 +122,8 @@ const menuAction = {
 ## Refactor Direction
 
 Keep the JSX close to the return path or extract a dedicated component when the fragment has its own responsibility.
+
+When the stored value comes from a local JSX-returning helper call, convert that helper into a proper component and render it with `<Name />` instead of calling it and storing the result.
 
 For direct JSX lookup tables:
 
