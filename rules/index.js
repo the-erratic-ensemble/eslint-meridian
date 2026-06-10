@@ -2,6 +2,8 @@ export { default as noCollectionConstructorPipelinesRule } from "./no-collection
 export { default as noCollectionMethodsInTernariesRule } from "./no-collection-methods-in-ternaries.js";
 export { default as noCollectionMethodsOnSpreadArraysRule } from "./no-collection-methods-on-spread-arrays.js";
 export { default as noComplexArrayCallbacksRule } from "./no-complex-array-callbacks.js";
+export { default as noComplexBooleanAssignmentsRule } from "./no-complex-boolean-assignments.js";
+export { default as noComplexConditionalTextInJsxRule } from "./no-complex-conditional-text-in-jsx.js";
 export { default as noComplexHookCallbacksRule } from "./no-complex-hook-callbacks.js";
 export { default as noComplexInlineHandlersRule } from "./no-complex-inline-handlers.js";
 export { default as noComplexInlineObjectMethodsRule } from "./no-complex-inline-object-methods.js";
@@ -18,7 +20,15 @@ export { default as noInlineConditionalStylesRule } from "./no-inline-conditiona
 export { default as noInlineObjectLiteralsInJsxRule } from "./no-inline-object-literals-in-jsx.js";
 export { default as noInlineSpreadCollectionPipelinesRule } from "./no-inline-spread-collection-pipelines.js";
 export { default as jsxNoLeakedRenderRule } from "./jsx-no-leaked-render.js";
+export { default as noJsxIifeRule } from "./no-jsx-iife.js";
 export { default as noJsxInVariablesRule } from "./no-jsx-in-variables.js";
+export { default as noLocalJsxHelperCallsRule } from "./no-local-jsx-helper-calls.js";
+export { default as noPreJsxMarkBuilderLoopsRule } from "./no-pre-jsx-mark-builder-loops.js";
+export { default as noMixedChartSetupAndMarkupInComponentRule } from "./no-mixed-chart-setup-and-markup-in-component.js";
+export { default as noInlineFormattingInSvgMarksRule } from "./no-inline-formatting-in-svg-marks.js";
+export { default as noManualActiveItemScanBeforeRenderRule } from "./no-manual-active-item-scan-before-render.js";
+export { default as noMultiPhaseRenderComponentsRule } from "./no-multi-phase-render-components.js";
+export { default as noExcessiveComponentPropsRule } from "./no-excessive-component-props.js";
 export { default as noLetMutationInIfChainRule } from "./no-let-mutation-in-if-chain.js";
 export { default as noLongCollectionMethodChainsRule } from "./no-long-collection-method-chains.js";
 export { default as noLongIfElseChainRule } from "./no-long-if-else-chain.js";
@@ -28,6 +38,7 @@ export { default as noNestedTernaryInJsxRule } from "./no-nested-ternary-in-jsx.
 export { default as noNestedTryRule } from "./no-nested-try.js";
 export { default as noRenderTimeDateInJsxRule } from "./no-render-time-date-in-jsx.js";
 export { default as noRepeatedCollectionMethodFallbacksRule } from "./no-repeated-collection-method-fallbacks.js";
+export { default as noPropBagsRule } from "./no-prop-bags.js";
 export { default as noSetMapFromFlatMapRule } from "./no-set-map-from-flatmap.js";
 export { default as noStagedConditionalClassTokensRule } from "./no-staged-conditional-class-tokens.js";
 export { default as noStateSyncUseEffectRule } from "./no-state-sync-useeffect.js";

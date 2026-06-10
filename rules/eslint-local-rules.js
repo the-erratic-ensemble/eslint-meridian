@@ -1,5 +1,7 @@
 import noComplexInlineHandlersRule from "./no-complex-inline-handlers.js";
 import noComplexArrayCallbacksRule from "./no-complex-array-callbacks.js";
+import noComplexBooleanAssignmentsRule from "./no-complex-boolean-assignments.js";
+import noComplexConditionalTextInJsxRule from "./no-complex-conditional-text-in-jsx.js";
 import noCollectionMethodsInTernariesRule from "./no-collection-methods-in-ternaries.js";
 import noCollectionMethodsOnSpreadArraysRule from "./no-collection-methods-on-spread-arrays.js";
 import noCollectionConstructorPipelinesRule from "./no-collection-constructor-pipelines.js";
@@ -16,7 +18,15 @@ import noComplexJsxCollectionCallbackRule from "./no-complex-jsx-collection-call
 import noComplexInlineObjectMethodsRule from "./no-complex-inline-object-methods.js";
 import noLongInlineObjectMethodsRule from "./no-long-inline-object-methods.js";
 import noInlineConditionalStylesRule from "./no-inline-conditional-styles.js";
+import noJsxIifeRule from "./no-jsx-iife.js";
 import noJsxInVariablesRule from "./no-jsx-in-variables.js";
+import noLocalJsxHelperCallsRule from "./no-local-jsx-helper-calls.js";
+import noPreJsxMarkBuilderLoopsRule from "./no-pre-jsx-mark-builder-loops.js";
+import noMixedChartSetupAndMarkupInComponentRule from "./no-mixed-chart-setup-and-markup-in-component.js";
+import noInlineFormattingInSvgMarksRule from "./no-inline-formatting-in-svg-marks.js";
+import noManualActiveItemScanBeforeRenderRule from "./no-manual-active-item-scan-before-render.js";
+import noMultiPhaseRenderComponentsRule from "./no-multi-phase-render-components.js";
+import noExcessiveComponentPropsRule from "./no-excessive-component-props.js";
 import noRenderTimeDateInJsxRule from "./no-render-time-date-in-jsx.js";
 import noNestedTernaryInJsxRule from "./no-nested-ternary-in-jsx.js";
 import noLongIfElseChainRule from "./no-long-if-else-chain.js";
@@ -28,6 +38,7 @@ import noDeepControlFlowNestingRule from "./no-deep-control-flow-nesting.js";
 import noInlineObjectLiteralsInJsxRule from "./no-inline-object-literals-in-jsx.js";
 import jsxNoLeakedRenderRule from "./jsx-no-leaked-render.js";
 import noStateSyncUseEffectRule from "./no-state-sync-useeffect.js";
+import noPropBagsRule from "./no-prop-bags.js";
 import noDeepOptionalChainingConditionsRule from "./no-deep-optional-chaining-conditions.js";
 import noMixedUiAndDomainLogicInComponentRule from "./no-mixed-ui-and-domain-logic-in-component.js";
 import noStagedConditionalClassTokensRule from "./no-staged-conditional-class-tokens.js";
@@ -39,23 +50,41 @@ import reactComponentFilenamePascalCaseRule from "./react-component-filename-pas
 const LOCAL_RULES = {
   "no-complex-inline-handlers": noComplexInlineHandlersRule,
   "no-complex-array-callbacks": noComplexArrayCallbacksRule,
+  "no-complex-boolean-assignments": noComplexBooleanAssignmentsRule,
+  "no-complex-conditional-text-in-jsx": noComplexConditionalTextInJsxRule,
   "no-collection-methods-in-ternaries": noCollectionMethodsInTernariesRule,
-  "no-collection-methods-on-spread-arrays": noCollectionMethodsOnSpreadArraysRule,
+  "no-collection-methods-on-spread-arrays":
+    noCollectionMethodsOnSpreadArraysRule,
   "no-collection-constructor-pipelines": noCollectionConstructorPipelinesRule,
-  "no-inline-spread-collection-pipelines": noInlineSpreadCollectionPipelinesRule,
-  "no-conditional-expressions-in-collection-callbacks": noConditionalExpressionsInCollectionCallbacksRule,
+  "no-inline-spread-collection-pipelines":
+    noInlineSpreadCollectionPipelinesRule,
+  "no-conditional-expressions-in-collection-callbacks":
+    noConditionalExpressionsInCollectionCallbacksRule,
   "no-flatmap-present-items": noFlatMapPresentItemsRule,
-  "no-conditional-collection-initializers": noConditionalCollectionInitializersRule,
+  "no-conditional-collection-initializers":
+    noConditionalCollectionInitializersRule,
   "no-inline-collection-fallbacks": noInlineCollectionFallbacksRule,
-  "no-repeated-collection-method-fallbacks": noRepeatedCollectionMethodFallbacksRule,
-  "no-indexed-collection-pipeline-fallbacks": noIndexedCollectionPipelineFallbacksRule,
+  "no-repeated-collection-method-fallbacks":
+    noRepeatedCollectionMethodFallbacksRule,
+  "no-indexed-collection-pipeline-fallbacks":
+    noIndexedCollectionPipelineFallbacksRule,
   "no-set-map-from-flatmap": noSetMapFromFlatMapRule,
   "no-complex-hook-callbacks": noComplexHookCallbacksRule,
   "no-complex-jsx-collection-callback": noComplexJsxCollectionCallbackRule,
   "no-complex-inline-object-methods": noComplexInlineObjectMethodsRule,
   "no-long-inline-object-methods": noLongInlineObjectMethodsRule,
   "no-inline-conditional-styles": noInlineConditionalStylesRule,
+  "no-jsx-iife": noJsxIifeRule,
   "no-jsx-in-variables": noJsxInVariablesRule,
+  "no-local-jsx-helper-calls": noLocalJsxHelperCallsRule,
+  "no-pre-jsx-mark-builder-loops": noPreJsxMarkBuilderLoopsRule,
+  "no-mixed-chart-setup-and-markup-in-component":
+    noMixedChartSetupAndMarkupInComponentRule,
+  "no-inline-formatting-in-svg-marks": noInlineFormattingInSvgMarksRule,
+  "no-manual-active-item-scan-before-render":
+    noManualActiveItemScanBeforeRenderRule,
+  "no-multi-phase-render-components": noMultiPhaseRenderComponentsRule,
+  "no-excessive-component-props": noExcessiveComponentPropsRule,
   "no-render-time-date-in-jsx": noRenderTimeDateInJsxRule,
   "no-nested-ternary-in-jsx": noNestedTernaryInJsxRule,
   "no-long-if-else-chain": noLongIfElseChainRule,
@@ -67,22 +96,24 @@ const LOCAL_RULES = {
   "no-inline-object-literals-in-jsx": noInlineObjectLiteralsInJsxRule,
   "jsx-no-leaked-render": jsxNoLeakedRenderRule,
   "no-state-sync-useeffect": noStateSyncUseEffectRule,
+  "no-prop-bags": noPropBagsRule,
   "no-deep-optional-chaining-conditions": noDeepOptionalChainingConditionsRule,
-  "no-mixed-ui-and-domain-logic-in-component": noMixedUiAndDomainLogicInComponentRule,
+  "no-mixed-ui-and-domain-logic-in-component":
+    noMixedUiAndDomainLogicInComponentRule,
   "no-staged-conditional-class-tokens": noStagedConditionalClassTokensRule,
   "prefer-classname-helper-module": preferClassnameHelperModuleRule,
 
   "react19-no-forwardref": react19NoForwardReferenceRule,
 
   "no-forbidden-declaration-names": noForbiddenDeclarationNamesRule,
-  "react-component-filename-pascal-case": reactComponentFilenamePascalCaseRule
+  "react-component-filename-pascal-case": reactComponentFilenamePascalCaseRule,
 };
 
 const meridianLocalRulesPlugin = {
   meta: {
-    name: "eslint-meridian"
+    name: "eslint-meridian",
   },
-  rules: LOCAL_RULES
+  rules: LOCAL_RULES,
 };
 
 export default meridianLocalRulesPlugin;

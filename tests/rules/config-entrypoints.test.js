@@ -7,18 +7,25 @@ import {
   meridianLocalAllConfig,
   meridianLocalAllConfigRules,
   meridianLocalCallbackComplexityRules,
+  meridianLocalChartRenderingRules,
   meridianLocalCollectionReadabilityRules,
   meridianLocalControlFlowRules,
   meridianLocalNamingBoundaryRules,
   meridianLocalRecommendedConfig,
   meridianLocalRecommendedConfigRules,
   meridianLocalReactContractRules,
-  meridianLocalRuleGroups
+  meridianLocalRuleGroups,
 } from "../../configs/index.js";
 
 test("recommended config wires the canonical plugin and rules", () => {
-  assert.equal(meridianLocalRecommendedConfig.plugins["meridian-local"], meridianLocalRulesPlugin);
-  assert.deepEqual(meridianLocalRecommendedConfig.rules, meridianLocalRecommendedConfigRules);
+  assert.equal(
+    meridianLocalRecommendedConfig.plugins["meridian-local"],
+    meridianLocalRulesPlugin,
+  );
+  assert.deepEqual(
+    meridianLocalRecommendedConfig.rules,
+    meridianLocalRecommendedConfigRules,
+  );
 });
 
 test("all config covers the full exported plugin rule inventory", () => {
@@ -26,19 +33,36 @@ test("all config covers the full exported plugin rule inventory", () => {
     .map((ruleName) => `meridian-local/${ruleName}`)
     .toSorted();
 
-  assert.deepEqual(Object.keys(meridianLocalAllConfigRules).toSorted(), exportedRuleIds);
-  assert.deepEqual(Object.keys(meridianLocalAllConfig.rules).toSorted(), exportedRuleIds);
+  assert.deepEqual(
+    Object.keys(meridianLocalAllConfigRules).toSorted(),
+    exportedRuleIds,
+  );
+  assert.deepEqual(
+    Object.keys(meridianLocalAllConfig.rules).toSorted(),
+    exportedRuleIds,
+  );
 });
 
 test("grouped rule selection preserves configured profile values and defaults unknown rules to warn", () => {
-  const controlFlowSelection = createRuleSelection(meridianLocalRuleGroups.controlFlow);
+  const controlFlowSelection = createRuleSelection(
+    meridianLocalRuleGroups.controlFlow,
+  );
 
   assert.equal(controlFlowSelection["meridian-local/no-nested-try"], "warn");
-  assert.equal(controlFlowSelection["meridian-local/no-deep-optional-chaining-conditions"], "warn");
+  assert.equal(
+    controlFlowSelection["meridian-local/no-deep-optional-chaining-conditions"],
+    "warn",
+  );
 
-  const customSelection = createRuleSelection(["meridian-local/no-inline-object-literals-in-jsx"], {});
+  const customSelection = createRuleSelection(
+    ["meridian-local/no-inline-object-literals-in-jsx"],
+    {},
+  );
 
-  assert.equal(customSelection["meridian-local/no-inline-object-literals-in-jsx"], "warn");
+  assert.equal(
+    customSelection["meridian-local/no-inline-object-literals-in-jsx"],
+    "warn",
+  );
 });
 
 test("group taxonomy is a single consistent source for grouped rule exports", () => {
@@ -48,31 +72,41 @@ test("group taxonomy is a single consistent source for grouped rule exports", ()
   assert.equal(groupedRuleIds.length, groupedRuleIdSet.size);
 
   for (const ruleId of groupedRuleIdSet) {
-    assert.ok(ruleId in meridianLocalRulesPlugin.rules || ruleId.replace("meridian-local/", "") in meridianLocalRulesPlugin.rules);
+    assert.ok(
+      ruleId in meridianLocalRulesPlugin.rules ||
+        ruleId.replace("meridian-local/", "") in meridianLocalRulesPlugin.rules,
+    );
   }
 
   assert.deepEqual(
     meridianLocalReactContractRules,
-    createRuleSelection(meridianLocalRuleGroups.reactContract)
+    createRuleSelection(meridianLocalRuleGroups.reactContract),
   );
   assert.deepEqual(
     meridianLocalCallbackComplexityRules,
-    createRuleSelection(meridianLocalRuleGroups.callbackComplexity)
+    createRuleSelection(meridianLocalRuleGroups.callbackComplexity),
   );
-  assert.deepEqual(meridianLocalControlFlowRules, createRuleSelection(meridianLocalRuleGroups.controlFlow));
+  assert.deepEqual(
+    meridianLocalControlFlowRules,
+    createRuleSelection(meridianLocalRuleGroups.controlFlow),
+  );
   assert.deepEqual(
     meridianLocalCollectionReadabilityRules,
-    createRuleSelection(meridianLocalRuleGroups.collectionReadability)
+    createRuleSelection(meridianLocalRuleGroups.collectionReadability),
+  );
+  assert.deepEqual(
+    meridianLocalChartRenderingRules,
+    createRuleSelection(meridianLocalRuleGroups.chartRendering),
   );
   assert.deepEqual(
     meridianLocalNamingBoundaryRules,
-    createRuleSelection(meridianLocalRuleGroups.namingBoundaries)
+    createRuleSelection(meridianLocalRuleGroups.namingBoundaries),
   );
 });
 
 test("createFlatConfig returns a standalone flat-config fragment", () => {
   const ruleSettings = {
-    "meridian-local/no-nested-try": "warn"
+    "meridian-local/no-nested-try": "warn",
   };
   const config = createFlatConfig(ruleSettings);
 
