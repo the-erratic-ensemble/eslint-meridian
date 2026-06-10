@@ -50,6 +50,8 @@ These rules keep component APIs and React usage aligned with Meridian convention
 - `meridian-local/no-jsx-in-variables`
 - `meridian-local/no-render-time-date-in-jsx`
 - `meridian-local/no-staged-conditional-class-tokens`
+- `meridian-local/no-excessive-component-props`
+- `meridian-local/no-prop-bags`
 
 ### Callback and inline complexity rules
 
@@ -106,7 +108,7 @@ These rules enforce Meridian naming and boundary expectations.
 | Profile       | Source of truth                                       | What it enables                                                                             | When to use it                                                   |
 | ------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | `recommended` | `oxlint/meridian-local-rules.json`                    | Current stable baseline                                                                     | Default for production adoption                                  |
-| `strict`      | `recommended` plus JS additions in `rules/profile.js` | Adds `no-deep-optional-chaining-conditions` and `no-mixed-ui-and-domain-logic-in-component` | Use when a surface already expects stricter boundary enforcement |
+| `strict`      | `recommended` plus JS additions in `rules/profile.js` | Adds `no-deep-optional-chaining-conditions`, `no-mixed-ui-and-domain-logic-in-component`, `no-excessive-component-props`, and `no-prop-bags` | Use when a surface already expects stricter boundary enforcement |
 | `pilot`       | `strict` plus JS additions in `rules/profile.js`      | Adds `no-inline-object-literals-in-jsx`                                                     | Use only for bounded trial rollout                               |
 
 ## Profile Selection Guide

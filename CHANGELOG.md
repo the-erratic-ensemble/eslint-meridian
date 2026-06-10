@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-06-09
+
+- Added `meridian-local/no-excessive-component-props` to flag React components that expose more than the configured top-level prop count.
+- Added `meridian-local/no-prop-bags` to flag component `*Props` declarations that accumulate too many nested object-shaped bag props or make one nested bag too large.
+- Placed `no-excessive-component-props` and `no-prop-bags` in the `strict` and `pilot` profiles and documented both rules as React/component contract guards.
+
 ## [1.0.2](https://github.com/the-erratic-ensemble/eslint-meridian/compare/v1.0.1...v1.0.2) (2026-06-04)
 
 
