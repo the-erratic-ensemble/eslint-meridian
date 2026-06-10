@@ -5,6 +5,8 @@ export {
   meridianLocalAllConfigRules,
   meridianLocalCallbackComplexityConfig,
   meridianLocalCallbackComplexityRules,
+  meridianLocalChartRenderingConfig,
+  meridianLocalChartRenderingRules,
   meridianLocalCollectionReadabilityConfig,
   meridianLocalCollectionReadabilityRules,
   meridianLocalControlFlowConfig,
@@ -19,5 +21,5 @@ export {
   meridianLocalRecommendedConfigRules,
   meridianLocalRuleGroups,
   meridianLocalStrictConfig,
-  meridianLocalStrictConfigRules
+  meridianLocalStrictConfigRules,
 } from "./shared.js";

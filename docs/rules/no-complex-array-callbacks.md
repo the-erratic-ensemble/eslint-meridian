@@ -10,6 +10,8 @@ Collection callbacks are easiest to read when they stay expression-shaped and lo
 
 It watches array methods such as `map`, `filter`, `find`, `some`, `every`, `flatMap`, and `reduce`, then flags callbacks that exceed the configured simplicity limits.
 
+That includes dense predicate callbacks that compress too many boolean checks into one expression-bodied `filter` / `find` / `some` / `every` callback.
+
 ## Meridian Profile Status
 
 - Rule ID: `meridian-local/no-complex-array-callbacks`
@@ -35,6 +37,8 @@ It watches array methods such as `map`, `filter`, `find`, `some`, `every`, `flat
 - `disallowLoops` (default: `true`)
 - `disallowNestedFunctions` (default: `true`)
 - `disallowTernary` (default: `false`)
+- `logicalExpressionMethods` (default: `["filter", "find", "some", "every"]`) — methods whose callbacks should be checked for dense boolean expression bodies.
+- `maxLogicalExpressions` (default: `2`) — maximum number of `&&` / `||` logical-expression nodes allowed in those predicate callbacks.
 - `skipJsxCollectionMethods` (default: `["map", "flatMap"]`)
 
 ## Examples
@@ -49,6 +53,16 @@ rows.map((row) => {
 });
 ```
 
+```js
+const fallbackGroups = groups.filter(
+  (group) =>
+    !usedGroupKeys.has(group.key) &&
+    !!group.nearestAmenityName &&
+    !!group.nearestDistanceLabel &&
+    (group.nearestDistanceMeters ?? 0) > 0,
+);
+```
+
 ### ✅ Correct
 
 ```js
@@ -59,10 +73,21 @@ const getItemValue = (row) => {
 rows.map(getItemValue);
 ```
 
+```js
+const isFallbackGroup = (group) =>
+  !usedGroupKeys.has(group.key) &&
+  !!group.nearestAmenityName &&
+  !!group.nearestDistanceLabel &&
+  (group.nearestDistanceMeters ?? 0) > 0;
+
+const fallbackGroups = groups.filter(isFallbackGroup);
+```
+
 ## Edge Cases and False Positives
 
 - This rule skips JSX `map` and `flatMap` callbacks by default via `skipJsxCollectionMethods`; render-path enforcement typically comes from `no-complex-jsx-collection-callback` instead.
 - If a callback is tightly coupled to component-local names, prefer extracting one small named helper before relaxing several thresholds at once.
+- For predicate callbacks, the goal is not to ban boolean checks. The goal is to stop one callback from turning into a mini guard pipeline that is harder to scan than a named predicate.
 
 ## Refactor Direction
 

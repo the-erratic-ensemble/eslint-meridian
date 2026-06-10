@@ -20,6 +20,7 @@
     "./configs/pilot": "./configs/pilot.js",
     "./configs/all": "./configs/all.js",
     "./configs/react-contract": "./configs/react-contract.js",
+    "./configs/chart-rendering": "./configs/chart-rendering.js",
     "./configs/callback-complexity": "./configs/callback-complexity.js",
     "./configs/control-flow": "./configs/control-flow.js",
     "./configs/collection-readability": "./configs/collection-readability.js",

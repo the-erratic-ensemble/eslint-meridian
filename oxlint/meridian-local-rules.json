@@ -35,7 +35,9 @@
       }
     ],
     "meridian-local/no-complex-inline-handlers": "warn",
+    "meridian-local/no-complex-conditional-text-in-jsx": "warn",
     "meridian-local/jsx-no-leaked-render": "warn",
+    "meridian-local/no-local-jsx-helper-calls": "warn",
     "meridian-local/no-ternary-in-branch-assignment": [
       "warn",
       {
@@ -81,6 +83,7 @@
         "disallowNestedTernary": true
       }
     ],
+    "meridian-local/no-complex-boolean-assignments": "warn",
     "meridian-local/no-complex-jsx-collection-callback": [
       "warn",
       {

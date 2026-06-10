@@ -57,6 +57,7 @@ Prefer these exports over deep imports:
 | `eslint-meridian/configs/pilot`                    | Ready-to-use `pilot` flat-config fragment                   |
 | `eslint-meridian/configs/all`                      | Full exported rule inventory with default `warn` fallbacks  |
 | `eslint-meridian/configs/react-contract`           | React/component contract grouping                           |
+| `eslint-meridian/configs/chart-rendering`          | Chart rendering readability grouping                        |
 | `eslint-meridian/configs/callback-complexity`      | Inline callback complexity grouping                         |
 | `eslint-meridian/configs/control-flow`             | Control-flow readability grouping                           |
 | `eslint-meridian/configs/collection-readability`   | Collection readability grouping                             |
@@ -162,6 +163,7 @@ If your tooling resolves package exports directly for JSON and plugin paths, use
 `eslint-meridian/configs` exports these stable groupings:
 
 - `meridianLocalReactContractConfig`
+- `meridianLocalChartRenderingConfig`
 - `meridianLocalCallbackComplexityConfig`
 - `meridianLocalControlFlowConfig`
 - `meridianLocalCollectionReadabilityConfig`
@@ -178,6 +180,8 @@ The strongest current rules are the ones with narrow contracts and direct refact
 
 - `meridian-local/no-nested-try`
 - `meridian-local/no-deep-control-flow-nesting`
+- `meridian-local/no-excessive-component-props`
+- `meridian-local/no-prop-bags`
 - `meridian-local/no-inline-spread-collection-pipelines`
 - `meridian-local/no-long-inline-object-methods`
 - `meridian-local/react-component-filename-pascal-case`
@@ -191,6 +195,11 @@ The most heuristic-heavy rules are:
 - `meridian-local/no-complex-hook-callbacks`
 - `meridian-local/no-jsx-in-variables`
 - `meridian-local/no-staged-conditional-class-tokens`
+- `meridian-local/no-pre-jsx-mark-builder-loops`
+- `meridian-local/no-mixed-chart-setup-and-markup-in-component`
+- `meridian-local/no-inline-formatting-in-svg-marks`
+- `meridian-local/no-manual-active-item-scan-before-render`
+- `meridian-local/no-multi-phase-render-components`
 
 Those rules are still part of the package contract, but consumers should expect narrower shape matching and should read the per-rule docs before suppressing or escalating them.
 
