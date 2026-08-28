@@ -44,5 +44,6 @@ export { default as noStagedConditionalClassTokensRule } from "./no-staged-condi
 export { default as noStateSyncUseEffectRule } from "./no-state-sync-useeffect.js";
 export { default as noTernaryInBranchAssignmentRule } from "./no-ternary-in-branch-assignment.js";
 export { default as preferClassnameHelperModuleRule } from "./prefer-classname-helper-module.js";
+export { default as preferReusableJsxComponentRule } from "./prefer-reusable-jsx-component.js";
 export { default as react19NoForwardRefRule } from "./react19-no-forwardref.js";
 export { default as reactComponentFilenamePascalCaseRule } from "./react-component-filename-pascal-case.js";

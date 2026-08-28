@@ -43,6 +43,7 @@ import noDeepOptionalChainingConditionsRule from "./no-deep-optional-chaining-co
 import noMixedUiAndDomainLogicInComponentRule from "./no-mixed-ui-and-domain-logic-in-component.js";
 import noStagedConditionalClassTokensRule from "./no-staged-conditional-class-tokens.js";
 import preferClassnameHelperModuleRule from "./prefer-classname-helper-module.js";
+import preferReusableJsxComponentRule from "./prefer-reusable-jsx-component.js";
 import react19NoForwardReferenceRule from "./react19-no-forwardref.js";
 import noForbiddenDeclarationNamesRule from "./no-forbidden-declaration-names.js";
 import reactComponentFilenamePascalCaseRule from "./react-component-filename-pascal-case.js";
@@ -102,6 +103,7 @@ const LOCAL_RULES = {
     noMixedUiAndDomainLogicInComponentRule,
   "no-staged-conditional-class-tokens": noStagedConditionalClassTokensRule,
   "prefer-classname-helper-module": preferClassnameHelperModuleRule,
+  "prefer-reusable-jsx-component": preferReusableJsxComponentRule,
 
   "react19-no-forwardref": react19NoForwardReferenceRule,
 
