@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/the-erratic-ensemble/eslint-meridian/compare/v1.1.0...v1.2.0) (2026-08-28)
+
+
+### Features
+
+* **rules:** add reusable JSX component rule ([4c96791](https://github.com/the-erratic-ensemble/eslint-meridian/commit/4c967918dd2492d348327db92d3e56d888439b35))
+* **rules:** register reusable JSX rule in pilot profile ([632f10b](https://github.com/the-erratic-ensemble/eslint-meridian/commit/632f10b25bdf2b6bc3ff3bb158bd470e89483180))
+
 ## [1.1.0](https://github.com/the-erratic-ensemble/eslint-meridian/compare/v1.0.2...v1.1.0) (2026-06-10)
 
 
