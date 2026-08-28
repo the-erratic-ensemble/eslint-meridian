@@ -29,6 +29,10 @@ const groupedRuleMetadata = Object.freeze([
     ruleId: "meridian-local/prefer-classname-helper-module",
     group: "reactContract",
   },
+  {
+    ruleId: "meridian-local/prefer-reusable-jsx-component",
+    group: "reactContract",
+  },
   { ruleId: "meridian-local/no-jsx-iife", group: "reactContract" },
   { ruleId: "meridian-local/no-jsx-in-variables", group: "reactContract" },
   { ruleId: "meridian-local/jsx-no-leaked-render", group: "reactContract" },

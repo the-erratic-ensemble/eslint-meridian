@@ -21,6 +21,7 @@ const PILOT_OVERRIDES = {
   "meridian-local/no-inline-formatting-in-svg-marks": "warn",
   "meridian-local/no-manual-active-item-scan-before-render": "warn",
   "meridian-local/no-multi-phase-render-components": "warn",
+  "meridian-local/prefer-reusable-jsx-component": "warn",
 };
 
 const cloneRules = (rules) => structuredClone(rules ?? {});
